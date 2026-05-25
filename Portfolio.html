@@ -1,0 +1,1924 @@
+<!doctype html>
+<html lang="bg" data-theme="dark" data-paper="on">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Борис Цанков — Художник, 3D артист, Сценограф</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&family=IBM+Plex+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+/* ═══════════════════════════════════════════════════════════
+   BORIS TSANKOV — Portfolio
+   Museum-neutral aesthetic · Barlow Condensed · Masonry
+   ═══════════════════════════════════════════════════════════ */
+
+:root {
+  --bg:        #f3f3f1;
+  --bg-alt:    #ececea;
+  --surface:   #e3e3e0;
+  --line:      #cccbc7;
+  --line-soft: #dedcd8;
+  --text:      #1a1a18;
+  --text-2:    #3a3936;
+  --muted:     #888782;
+  --accent:    #2a2a28;
+
+  --maxw:   1360px;
+  --gutter: clamp(22px, 4vw, 56px);
+  --gap:    clamp(22px, 2.2vw, 32px);
+
+  --f-display: 'Barlow Condensed', system-ui, sans-serif;
+  --f-body:    'DM Sans', system-ui, sans-serif;
+  --f-mono:    'IBM Plex Mono', ui-monospace, monospace;
+
+  /* hero vertical torn-paper divider */
+  --hero-tear-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 800' preserveAspectRatio='none'><defs><linearGradient id='g' x1='0' x2='1'><stop offset='18%25' stop-color='white'/><stop offset='62%25' stop-color='black'/></linearGradient><filter id='f' x='-40%25' y='-5%25' width='180%25' height='110%25'><feTurbulence type='fractalNoise' baseFrequency='0.008 0.03' numOctaves='4' seed='31' result='n'/><feDisplacementMap in='SourceGraphic' in2='n' scale='34' xChannelSelector='R' yChannelSelector='G'/></filter></defs><rect width='100' height='800' fill='url(%23g)' filter='url(%23f)'/></svg>");
+
+  /* torn-edge SVG masks */
+  --paper-mask:   url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400' preserveAspectRatio='none'><filter id='t' x='-6%25' y='-6%25' width='112%25' height='112%25'><feTurbulence type='fractalNoise' baseFrequency='0.014 0.022' numOctaves='2' seed='3' result='n'/><feDisplacementMap in='SourceGraphic' in2='n' scale='10'/></filter><rect width='400' height='400' fill='white' filter='url(%23t)'/></svg>");
+  --paper-mask-b: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400' preserveAspectRatio='none'><filter id='t' x='-6%25' y='-6%25' width='112%25' height='112%25'><feTurbulence type='fractalNoise' baseFrequency='0.018 0.012' numOctaves='2' seed='11' result='n'/><feDisplacementMap in='SourceGraphic' in2='n' scale='12'/></filter><rect width='400' height='400' fill='white' filter='url(%23t)'/></svg>");
+}
+
+[data-theme="dark"] {
+  --bg:        #16161a;
+  --bg-alt:    #1c1c20;
+  --surface:   #232328;
+  --line:      #2e2e34;
+  --line-soft: #25252b;
+  --text:      #e8e8ea;
+  --text-2:    #c4c4c8;
+  --muted:     #7e7e84;
+  --accent:    #c8c8ca;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+
+/* ── SKIP TO CONTENT — keyboard accessibility ──────────────── */
+.skip-link {
+  position: absolute;
+  top: -200%;
+  left: var(--gutter);
+  z-index: 9999;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 8px 18px;
+  border: 1px solid var(--line);
+  outline: none;
+  transition: none;
+}
+.skip-link:focus-visible { top: 8px; }
+/* html bg = hero-dark always — eliminates any top-of-page flash in light mode */
+html { background: #071414; color: var(--text); color-scheme: dark; }
+[data-theme="light"] { color-scheme: light; }
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+body {
+  font-family: var(--f-body);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  background: var(--bg);
+  transition: background .3s, color .3s, border-color .3s;
+}
+button  { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+img     { display: block; max-width: 100%; }
+::selection { background: var(--accent); color: var(--bg); }
+
+/* ══════════════════════════════════════════════════════════════
+   NAV — Gallery Director
+   · Not scrolled: floating brand + hairline trigger (no bar)
+   · Scrolled:     frosted glass bar + inline links
+   · Menu trigger: always visible, opens full-screen overlay
+   ══════════════════════════════════════════════════════════════ */
+
+.nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 100;
+  height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 var(--gutter);
+  background: none;
+  border-bottom: none;
+}
+
+/* Frosted bar — invisible until scrolled */
+.nav::before {
+  content: '';
+  position: absolute; inset: 0; z-index: -1;
+  background: transparent;
+  opacity: 0; visibility: hidden;
+  transition: opacity .42s ease, visibility 0s linear .42s;
+}
+.nav--scrolled::before {
+  background: color-mix(in oklab, var(--bg) 92%, transparent);
+  backdrop-filter: blur(22px) saturate(1.4);
+  -webkit-backdrop-filter: blur(22px) saturate(1.4);
+  border-bottom: 1px solid var(--line-soft);
+  opacity: 1; visibility: visible;
+  transition: opacity .42s ease, visibility 0s;
+}
+
+/* ── Brand ─────────────────────────────────────────────────── */
+.brand {
+  font-family: var(--f-display);
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: #fff;
+  text-shadow: 0 1px 16px rgba(0,0,0,0.6), 0 0 4px rgba(0,0,0,0.3);
+  transition: color .35s, text-shadow .35s, opacity .2s;
+  z-index: 1;
+}
+.nav--scrolled .brand { color: var(--text); text-shadow: none; }
+.brand:hover { opacity: 0.55; }
+
+/* ── Inline links — ONLY when scrolled, desktop ────────────── */
+.nav__links {
+  display: none;   /* hidden until scrolled */
+  align-items: center;
+  gap: clamp(18px, 2.4vw, 34px);
+  list-style: none; margin: 0; padding: 0;
+  position: absolute; left: 50%; transform: translateX(-50%);
+}
+.nav--scrolled .nav__links { display: flex; }
+
+.nav__links button {
+  font-family: var(--f-display);
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 3px 0;
+  border-bottom: 1px solid transparent;
+  transition: color .2s, border-color .2s;
+}
+.nav__links button:hover  { color: var(--text); }
+.nav__links button.active { color: var(--text); border-bottom-color: var(--text); }
+
+/* ── Right cluster ──────────────────────────────────────────── */
+.nav__right { display: flex; align-items: center; gap: 18px; z-index: 1; }
+
+/* Theme button */
+.theme-btn {
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.65);
+  text-shadow: 0 0 10px rgba(0,0,0,0.5);
+  padding: 5px 10px;
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 2px;
+  transition: color .3s, text-shadow .3s, border-color .3s, background .3s;
+}
+.nav--scrolled .theme-btn { color: var(--muted); border-color: var(--line); text-shadow: none; }
+.theme-btn:hover { color: #fff; border-color: rgba(255,255,255,0.55); }
+.nav--scrolled .theme-btn:hover { color: var(--text); border-color: var(--accent); background: var(--surface); }
+
+/* ── Menu trigger — two hairlines that morph to × ──────────── */
+.menu-trigger {
+  display: flex; flex-direction: column; justify-content: center; align-items: flex-end;
+  gap: 7px;
+  width: 36px; height: 36px;
+  cursor: pointer; background: none; border: 0; padding: 6px;
+  flex-shrink: 0;
+}
+.menu-trigger__line {
+  display: block;
+  height: 1px;
+  background: #fff;
+  box-shadow: 0 0 8px rgba(0,0,0,0.5);
+  transform-origin: center;
+  transition: transform .42s cubic-bezier(.77,0,.18,1),
+              width .42s cubic-bezier(.77,0,.18,1),
+              background .3s, box-shadow .3s;
+}
+.menu-trigger__line:first-child  { width: 24px; }
+.menu-trigger__line:last-child   { width: 16px; }
+.nav--scrolled .menu-trigger__line { background: var(--text); box-shadow: none; }
+
+/* Open state → × */
+.nav--menu-open .menu-trigger__line:first-child {
+  width: 22px; transform: translateY(4px) rotate(45deg);
+}
+.nav--menu-open .menu-trigger__line:last-child {
+  width: 22px; transform: translateY(-4px) rotate(-45deg);
+}
+.nav--menu-open .menu-trigger__line { background: #fff !important; box-shadow: 0 0 8px rgba(0,0,0,0.4); }
+
+/* Hide old burger */
+.burger { display: none !important; }
+
+@media (max-width: 700px) {
+  .nav--scrolled .nav__links { display: none; }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   FULL-SCREEN MENU OVERLAY
+   ══════════════════════════════════════════════════════════════ */
+
+.nav-overlay {
+  position: fixed; inset: 0;
+  z-index: 99;
+  background: #080d0d;
+  display: flex; flex-direction: column;
+  padding: 80px var(--gutter) 52px;
+  /* GPU-accelerated transform — zero pixel-edge artifacts */
+  transform: translateY(-100%);
+  transition: transform .62s cubic-bezier(.86,0,.07,1);
+  pointer-events: none;
+  overflow: hidden;
+}
+.nav-overlay--open {
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Subtle teal grain texture overlay */
+.nav-overlay::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 90% 10%, rgba(43,181,165,0.07) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 40% at 5% 90%,  rgba(43,181,165,0.05) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+/* Category list */
+.nav-overlay__list {
+  display: flex; flex-direction: column;
+  margin: auto 0;
+  padding: 0;
+  gap: 0;
+}
+
+.nav-overlay__item {
+  display: flex; align-items: baseline;
+  gap: clamp(16px, 3vw, 40px);
+  background: none; border: 0; cursor: pointer;
+  text-align: left; width: 100%;
+  padding: clamp(10px, 1.8vh, 18px) 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  opacity: 0; transform: translateX(-28px);
+  transition: opacity .55s cubic-bezier(.22,1,.36,1),
+              transform .55s cubic-bezier(.22,1,.36,1);
+  transition-delay: calc(var(--i, 0) * 65ms + 150ms);
+  overflow: hidden;
+}
+.nav-overlay--open .nav-overlay__item { opacity: 1; transform: translateX(0); }
+
+.nav-overlay__item:hover .nav-overlay__label {
+  color: var(--hero-teal);
+  transform: translateX(10px);
+}
+
+.nav-overlay__num {
+  font-family: var(--f-mono);
+  font-size: clamp(10px, 1.2vw, 13px);
+  color: rgba(255,255,255,0.22);
+  letter-spacing: 0.18em;
+  flex-shrink: 0;
+  width: clamp(28px, 4vw, 52px);
+  padding-top: 4px;
+}
+
+.nav-overlay__label {
+  font-family: var(--f-display);
+  font-size: clamp(42px, 7.5vw, 108px);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.88);
+  line-height: 1;
+  transition: color .25s, transform .3s cubic-bezier(.22,1,.36,1);
+}
+
+/* Footer of overlay — social links */
+.nav-overlay__foot {
+  display: flex; align-items: center; gap: 36px;
+  padding-top: 36px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  margin-top: 24px;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity .5s ease .55s, transform .5s cubic-bezier(.22,1,.36,1) .55s;
+}
+.nav-overlay--open .nav-overlay__foot { opacity: 1; transform: translateY(0); }
+
+.nav-overlay__foot a {
+  display: flex; align-items: center; gap: 10px;
+  font-family: var(--f-mono); font-size: 10px;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  text-decoration: none;
+  transition: color .2s;
+}
+.nav-overlay__foot a:hover { color: rgba(255,255,255,0.75); }
+.nav-overlay__foot a svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+.app { padding-top: 0; }
+
+/* ── HERO — full-bleed centered ────────────────────────────── */
+:root {
+  --hero-teal:   #2bb5a5;
+  --hero-dark:   #071414;
+}
+
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 560px;
+  overflow: hidden;
+  background: var(--hero-dark);
+}
+
+/* Full-bleed image — blurred for atmospheric wash */
+.hero__media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.hero__media img {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 120%;
+  top: -10%;
+  object-fit: cover;
+  object-position: center;
+  filter: blur(6px) saturate(0.75) brightness(0.9);
+  transform: scale(1.08);
+  will-change: transform;
+}
+
+/* Deep teal-dark overlay — harmonises with the painting's palette */
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    /* top — dark enough for white text, smooth taper, no hard edge */
+    linear-gradient(to bottom,
+      rgba(0,0,0,0.68) 0,
+      rgba(0,0,0,0.38) 80px,
+      rgba(0,0,0,0.10) 160px,
+      rgba(0,0,0,0.0)  260px),
+    /* center-bottom darkening for the name block */
+    radial-gradient(ellipse 90% 75% at 50% 65%, rgba(7,20,20,0.55) 0%, rgba(7,20,20,0.82) 100%);
+}
+
+/* ── Content — true center in space above the bar ───────────── */
+.hero__content {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: var(--gutter);
+  right: var(--gutter);
+  bottom: 56px;           /* above the bar */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Name */
+.hero__name {
+  font-family: var(--f-display);
+  font-weight: 700;
+  font-size: clamp(72px, 12vw, 192px);
+  line-height: 0.9;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #fff;
+  margin: 0;
+}
+.hero__name span {
+  font-weight: 300;
+  display: block;
+  letter-spacing: 0.06em;
+}
+
+/* Teal accent rule — matches the painting */
+.hero__rule {
+  width: 48px;
+  height: 1px;
+  background: var(--hero-teal);
+  opacity: 0.8;
+  margin: clamp(20px, 3vh, 32px) 0;
+  flex-shrink: 0;
+}
+
+/* Subtitle */
+.hero__role {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.36em;
+  text-transform: uppercase;
+  color: var(--hero-teal);
+  opacity: 0.75;
+  line-height: 1;
+}
+
+/* Social icons — centered, under subtitle */
+.hero__social {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: clamp(22px, 3vh, 36px);
+}
+.hero__social a {
+  color: rgba(255,255,255,0.65);
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--f-mono);
+  font-size: 9px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: color .25s, transform .25s;
+}
+.hero__social a:hover {
+  color: var(--hero-teal);
+  transform: translateY(-2px);
+}
+.hero__social svg {
+  width: 20px; height: 20px; flex-shrink: 0;
+}
+
+/* ── Hero always dark — override any theme ─────────────────── */
+.hero,
+.hero * {
+  --bg:      #16161a;
+  --bg-alt:  #1c1c20;
+  --text:    #e8e8ea;
+  --text-2:  #c4c4c8;
+  --muted:   #7e7e84;
+  --accent:  #c8c8ca;
+  --line:    #2e2e34;
+}
+
+/* ── Category buttons — centered below social, styled as pills ── */
+.hero__cats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: clamp(30px, 4.5vh, 52px);
+}
+.hero__cat {
+  font-family: var(--f-display);
+  font-weight: 500;
+  font-size: clamp(11px, 1.4vw, 14px);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.72);
+  padding: 9px clamp(16px, 2.2vw, 26px);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 2px;
+  white-space: nowrap;
+  line-height: 1;
+  /* base state — subtle glass */
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition:
+    color .22s ease,
+    background .22s ease,
+    border-color .22s ease,
+    transform .28s cubic-bezier(.22,1,.36,1),
+    box-shadow .28s ease;
+}
+.hero__cat:hover {
+  color: #fff;
+  background: rgba(255,255,255,0.12);
+  border-color: rgba(255,255,255,0.45);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+}
+.hero__cat:active {
+  transform: translateY(-1px);
+  transition-duration: .1s;
+}
+
+@media (max-width: 700px) {
+  .hero__cats { gap: 8px; margin-top: 24px; }
+  .hero__cat  { font-size: 11px; padding: 8px 14px; }
+}
+
+/* Scroll indicator — centered at bottom */
+.hero__bar {
+  position: absolute;
+  z-index: 2;
+  bottom: clamp(20px, 3.5vh, 36px);
+  left: 0; right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+}
+.hero__scroll {
+  pointer-events: auto;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--f-mono); font-size: 9px;
+  letter-spacing: 0.30em; text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  transition: color .2s;
+}
+.hero__scroll:hover { color: rgba(255,255,255,0.72); }
+.hero__scroll svg { transition: transform .35s ease; }
+.hero__scroll:hover svg {
+  transform: translateY(5px);
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hero__scroll svg { animation: scrollPulse 2.8s ease-in-out 2.8s infinite; }
+}
+@keyframes scrollPulse {
+  0%, 100% { transform: translateY(0); opacity: 1; }
+  50% { transform: translateY(7px); opacity: 0.38; }
+}
+
+/* Unused legacy elements */
+.hero__tear    { display: none; }
+.hero__caption { display: none; }
+
+@media (max-width: 700px) {
+  .hero__name   { font-size: clamp(56px, 16vw, 110px); }
+  .hero__rule   { margin: 16px 0; width: 36px; }
+  .hero__social { gap: 22px; margin-top: 20px; }
+}
+
+/* ── GALLERY SECTION ───────────────────────────────────────── */
+.cat {
+  padding: clamp(60px, 8vh, 110px) var(--gutter) clamp(40px, 5vh, 72px);
+  border-top: 1px solid var(--line-soft);
+  max-width: calc(var(--maxw) + var(--gutter) * 2);
+  margin: 0 auto;
+  width: 100%;
+  scroll-margin-top: 68px;
+}
+.cat__head {
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+  margin-bottom: clamp(32px, 4.5vh, 56px);
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--line);
+  position: relative;
+}
+.cat__head-num {
+  font-family: var(--f-mono);
+  font-size: 11px; letter-spacing: 0.18em;
+  color: var(--hero-teal);
+  opacity: 0.8;
+  flex-shrink: 0;
+  align-self: center;
+  padding-top: 4px;
+}
+.cat__head-title {
+  font-family: var(--f-display);
+  font-weight: 700;
+  font-size: clamp(34px, 5vw, 68px);
+  line-height: 0.92;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  text-wrap: balance;
+  color: var(--text);
+  margin: 0;
+  flex: 1;
+}
+.cat__head-count {
+  font-family: var(--f-mono);
+  font-size: 10px; letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  flex-shrink: 0;
+  align-self: center;
+}
+
+/* ── CSS Grid — flows left → right ───────────────────────── */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--gap);
+  align-items: start;
+}
+@media (max-width: 1000px) { .gallery-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 520px)  { .gallery-grid { grid-template-columns: 1fr; } }
+
+/* ── WORK CARD ─────────────────────────────────────────────── */
+.card {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: none;
+  margin: 0;
+  cursor: pointer;
+  position: relative;
+  isolation: isolate;
+}
+
+/* torn-paper backing sheet */
+[data-paper="on"] .card::before {
+  content: '';
+  position: absolute;
+  top: -5px; left: -7px; right: -3px; bottom: 5px;
+  background: color-mix(in oklab, var(--surface) 60%, var(--bg-alt) 40%);
+  transform: rotate(-0.4deg);
+  z-index: -1;
+  -webkit-mask-image: var(--paper-mask-b);
+          mask-image: var(--paper-mask-b);
+  -webkit-mask-size: 100% 100%;
+          mask-size: 100% 100%;
+  opacity: .55;
+  transition: transform .35s ease, opacity .35s ease;
+}
+[data-paper="on"] .card:nth-child(2n)::before {
+  top: -4px; left: 5px; right: -8px; bottom: -1px;
+  transform: rotate(0.5deg);
+  background: color-mix(in oklab, var(--surface) 50%, var(--bg) 50%);
+}
+[data-paper="on"] .card:nth-child(3n)::before {
+  top: -7px; left: -2px; right: -5px; bottom: 3px;
+  transform: rotate(-0.25deg);
+  opacity: .6;
+}
+[data-paper="on"] .card:hover::before {
+  transform: rotate(0deg) translate(2px, -2px);
+  opacity: .75;
+}
+[data-paper="on"][data-theme="light"] .card::before {
+  background: color-mix(in oklab, var(--surface) 50%, var(--bg-alt) 50%);
+  opacity: .65;
+}
+
+.card__art {
+  width: 100%; overflow: hidden;
+  background: var(--surface);
+  transition: opacity .32s ease;
+}
+.card__art img {
+  width: 100%; height: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform .55s cubic-bezier(.25,.46,.45,.94);
+}
+.card:hover .card__art { opacity: .78; }
+.card:hover .card__art img { transform: scale(1.03); }
+
+/* torn edges on artwork images */
+[data-paper="on"] .card__art {
+  -webkit-mask-image: var(--paper-mask);
+          mask-image: var(--paper-mask);
+  -webkit-mask-size: 100% 100%;
+          mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+}
+
+.card__meta {
+  display: flex; flex-direction: column; gap: 3px;
+  margin-top: 12px;
+  padding: 0 1px;
+  transition: opacity .25s ease;
+}
+.card__title {
+  font-family: var(--f-display);
+  font-weight: 600;
+  font-size: 17px;
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+  color: var(--text);
+  margin: 0;
+  transition: color .2s;
+}
+.card:hover .card__title { color: var(--accent); }
+.card__tech {
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+/* ── WORK DETAIL OVERLAY ───────────────────────────────────── */
+.detail {
+  position: fixed; inset: 0; z-index: 200;
+  background: var(--bg);
+  display: flex; flex-direction: column;
+  animation: detailIn .22s ease both;
+  transition: background .3s;
+}
+@keyframes detailIn { from { opacity: 0; transform: scale(0.98) translateY(10px); } to { opacity: 1; transform: scale(1) translateY(0); } }
+.detail__top {
+  flex-shrink: 0;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 16px var(--gutter);
+  border-bottom: 1px solid var(--line-soft);
+  font-family: var(--f-mono);
+  font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+}
+.detail__close {
+  color: var(--text); display: flex; align-items: center; gap: 8px;
+  padding: 6px 16px 6px 0;
+  transition: color .2s;
+}
+.detail__close:hover { color: var(--muted); }
+.detail__crumb { color: var(--muted); }
+.detail__stage {
+  flex: 1; min-height: 0;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: clamp(20px, 4vh, 48px) clamp(56px, 10vw, 160px) clamp(16px, 3vh, 32px);
+  gap: clamp(16px, 2.5vh, 26px);
+  position: relative;
+}
+.detail__frame {
+  max-width: 100%; max-height: 78vh;
+  flex: 1 1 auto; min-height: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.detail__frame img {
+  max-width: 100%; max-height: 78vh;
+  object-fit: contain;
+  display: block;
+}
+/* remove torn mask in detail view */
+[data-paper="on"] .detail__frame {
+  -webkit-mask-image: none;
+          mask-image: none;
+}
+.detail__caption {
+  text-align: center;
+  display: flex; flex-direction: column; gap: 6px;
+  flex-shrink: 0;
+}
+.detail__title {
+  font-family: var(--f-display);
+  font-weight: 500;
+  font-size: clamp(15px, 1.4vw, 20px);
+  letter-spacing: 0.04em; text-transform: uppercase;
+  text-wrap: balance;
+  color: var(--text); margin: 0;
+}
+.detail__meta {
+  font-family: var(--f-mono);
+  font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--muted);
+  display: flex; justify-content: center; gap: 10px; align-items: center;
+}
+.detail__arrow {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 52px; height: 52px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--muted); transition: color .2s;
+}
+.detail__arrow:hover { color: var(--text); }
+.detail__arrow--l { left: clamp(10px, 2vw, 28px); }
+.detail__arrow--r { right: clamp(10px, 2vw, 28px); }
+
+/* ══════════════════════════════════════════════════════════════
+   BIOGRAPHY — Clear, readable information design
+   · Name: modest heading, not dominant
+   · Bio: comfortable 15-16px body text
+   · Lists: large, well-spaced entries — easy to scan
+   · Exhibitions: 2-column grid, prominent
+   ══════════════════════════════════════════════════════════════ */
+
+.bio {
+  padding: clamp(72px, 9vh, 120px) var(--gutter) clamp(72px, 9vh, 120px);
+  border-top: 1px solid var(--line-soft);
+  max-width: calc(var(--maxw) + var(--gutter) * 2);
+  margin: 0 auto; width: 100%;
+  scroll-margin-top: 68px;
+}
+
+/* ── Header: photo + name + bio in one strip ── */
+.bio__intro {
+  display: grid;
+  grid-template-columns: clamp(160px, 22vw, 280px) 1fr;
+  gap: clamp(32px, 4vw, 60px);
+  align-items: start;
+  margin-top: clamp(36px, 5vh, 56px);
+  padding-bottom: clamp(40px, 5vh, 64px);
+  border-bottom: 1px solid var(--line);
+}
+
+/* Photo */
+.bio__photo {
+  width: 100%;
+  flex-shrink: 0;
+}
+.bio__photo img {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+[data-paper="on"] .bio__photo img {
+  -webkit-mask-image: var(--paper-mask);
+          mask-image: var(--paper-mask);
+  -webkit-mask-size: 100% 100%;
+          mask-size: 100% 100%;
+}
+.bio__photo-placeholder {
+  width: 100%; aspect-ratio: 3/4;
+  background: var(--surface);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--f-mono); font-size: 9px;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted);
+}
+
+/* Name + role + bio text */
+.bio__intro-text {}
+
+.bio__name {
+  font-family: var(--f-display);
+  font-weight: 600;
+  font-size: clamp(22px, 2.6vw, 32px);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text);
+  margin: 0 0 6px;
+  line-height: 1.1;
+}
+
+.bio__role {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 clamp(18px, 2.5vh, 28px);
+}
+
+.bio__paras {
+  font-size: clamp(14px, 1.15vw, 15.5px);
+  line-height: 1.78;
+  color: var(--text-2);
+  max-width: 64ch;
+}
+.bio__paras p { margin: 0 0 1em; }
+.bio__paras p:last-child { margin-bottom: 0; }
+
+/* ── Section block (reusable for all list types) ── */
+.bio__section {
+  padding: clamp(28px, 3.5vh, 44px) 0;
+  border-bottom: 1px solid var(--line-soft);
+}
+.bio__section:last-child { border-bottom: none; }
+
+.bio__section-title {
+  font-family: var(--f-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 clamp(16px, 2vh, 24px);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.bio__section-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+
+/* Entry row — year | text */
+.bio__entry {
+  display: grid;
+  grid-template-columns: 88px 1fr;
+  gap: 8px 16px;
+  padding: 11px 0;
+  border-bottom: 1px solid var(--line-soft);
+  align-items: baseline;
+}
+.bio__entry:last-child { border-bottom: none; }
+
+.bio__entry-year {
+  font-family: var(--f-mono);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  white-space: nowrap;
+  line-height: 1.5;
+}
+
+.bio__entry-text {
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--text-2);
+}
+
+/* ── 2-column grid for Education + Awards side-by-side ── */
+.bio__pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 clamp(32px, 4vw, 64px);
+  padding: clamp(28px, 3.5vh, 44px) 0;
+  border-bottom: 1px solid var(--line-soft);
+}
+.bio__pair .bio__section {
+  padding: 0;
+  border-bottom: none;
+}
+
+/* ── Exhibitions: 2-column grid, larger ── */
+.bio__exh-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 clamp(32px, 4vw, 64px);
+}
+.bio__exh-grid .bio__entry-text {
+  font-size: 14.5px;
+}
+
+/* ── Contact strip ── */
+.bio__contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 36px;
+  padding-top: clamp(20px, 2.5vh, 28px);
+  font-size: 14px;
+  color: var(--text-2);
+}
+.bio__contact-item { display: flex; gap: 10px; align-items: baseline; }
+.bio__contact-key {
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ── Responsive ── */
+@media (max-width: 820px) {
+  .bio__intro { grid-template-columns: 140px 1fr; gap: 26px; }
+  .bio__pair   { grid-template-columns: 1fr; gap: 0; }
+  .bio__pair .bio__section { padding: clamp(22px, 3vh, 36px) 0; border-bottom: 1px solid var(--line-soft); }
+  .bio__pair .bio__section:last-child { border-bottom: none; }
+  .bio__exh-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 540px) {
+  .bio__intro { grid-template-columns: 1fr; }
+  .bio__entry { grid-template-columns: 76px 1fr; }
+  .bio__entry-text { font-size: 14px; }
+}
+
+/* ── FOOTER ────────────────────────────────────────────────── */
+.foot {
+  border-top: 1px solid var(--line-soft);
+  padding: 28px var(--gutter);
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 20px;
+  font-family: var(--f-mono); font-size: 10px;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--muted);
+}
+.foot__email {
+  color: var(--muted);
+  text-decoration: none;
+  font-family: var(--f-mono); font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: none;
+  transition: color .22s;
+}
+.foot__email:hover { color: var(--text); }
+.foot__top {
+  display: inline-flex; align-items: center; gap: 7px;
+  color: var(--muted);
+  font-family: var(--f-mono); font-size: 10px;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  transition: color .22s, transform .25s cubic-bezier(.22,1,.36,1);
+  flex-shrink: 0;
+}
+.foot__top:hover { color: var(--text); transform: translateY(-2px); }
+@media (max-width: 540px) {
+  .foot { flex-wrap: wrap; gap: 10px; }
+  .foot__email { order: -1; width: 100%; }
+}
+
+/* ── PAPER / COLLAGE EFFECTS ───────────────────────────────── */
+/* Global warm paper grain overlay */
+[data-paper="on"] body::after {
+  content: '';
+  position: fixed; inset: 0; pointer-events: none; z-index: 300;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='320' height='320'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='2' seed='5' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.86  0 0 0 0 0.86  0 0 0 0 0.84  0 0 0 0.55 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  background-size: 320px 320px;
+  opacity: .12; mix-blend-mode: multiply;
+}
+[data-paper="on"][data-theme="dark"] body::after {
+  opacity: .07; mix-blend-mode: overlay;
+}
+
+/* Torn baseline under section headings */
+[data-paper="on"] .cat__head {
+  border-bottom: none;
+}
+[data-paper="on"] .cat__head::after {
+  content: '';
+  position: absolute; left: 0; right: 0; bottom: 0; height: 6px;
+  background: var(--line);
+  -webkit-mask-image: var(--paper-mask);
+          mask-image: var(--paper-mask);
+  -webkit-mask-size: 100% 100%;
+          mask-size: 100% 100%;
+  opacity: .8;
+}
+
+/* ── SCROLL FADE-IN ────────────────────────────────────────── */
+.reveal {
+  opacity: 0; transform: translateY(18px);
+  transition: opacity .55s ease, transform .55s ease;
+  transition-delay: var(--stagger, 0ms);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ── REVEAL LEFT (section headers) ────────────────────────── */
+.reveal-left {
+  opacity: 0; transform: translateX(-22px);
+  transition: opacity .65s cubic-bezier(.22,1,.36,1), transform .65s cubic-bezier(.22,1,.36,1);
+}
+.reveal-left.visible { opacity: 1; transform: translateX(0); }
+
+/* ── NAV ENTRANCE ──────────────────────────────────────────── */
+.nav { animation: navIn .5s cubic-bezier(.22,1,.36,1) both; }
+@keyframes navIn { from { transform: translateY(-54px); opacity: 0; } }
+
+/* ── HERO LOAD ANIMATIONS ──────────────────────────────────── */
+.hero__media    { animation: heroFade 1.4s  .00s ease both; }
+.hero__overlay  { animation: heroFade 1.0s  .15s ease both; }
+.hero__name     { animation: heroUp   1.1s  .28s cubic-bezier(.22,1,.36,1) both; }
+.hero__rule     { animation: heroWide  .8s  .52s cubic-bezier(.22,1,.36,1) both; }
+.hero__role     { animation: heroUp    .7s  .56s cubic-bezier(.22,1,.36,1) both; }
+.hero__bar      { animation: heroFade  .6s  .64s ease both; }
+@keyframes heroUp   { from { opacity: 0; transform: translateY(24px); } }
+@keyframes heroFade { from { opacity: 0; } }
+@keyframes heroWide { from { opacity: 0; transform: scaleX(0); transform-origin: center; } }
+@media (prefers-reduced-motion: reduce) {
+  .hero__media, .hero__overlay, .hero__name,
+  .hero__rule, .hero__role, .hero__bar { animation: none; }
+}
+
+/* ── SHOW MORE / COLLAPSE BUTTONS ──────────────────────────── */
+.show-more, .show-less {
+  display: inline-flex; align-items: center; gap: 10px;
+  margin: clamp(28px, 4.5vh, 48px) 0 0;
+  padding: 12px 28px;
+  font-family: var(--f-display); font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--text-2); border: 1px solid var(--line);
+  transition: color .22s, border-color .22s, background .22s;
+}
+.show-more:hover, .show-less:hover {
+  color: var(--text); border-color: var(--text);
+  background: var(--surface);
+}
+.show-more svg, .show-less svg { transition: transform .3s ease; flex-shrink: 0; }
+.show-more:hover svg { transform: translateX(4px); }
+.show-less:hover svg { transform: translateX(-4px); }
+.gallery-btns {
+  display: flex; gap: 14px; flex-wrap: wrap;
+}
+
+/* ── FOCUS VISIBLE — keyboard navigation ring ──────────────── */
+:focus-visible {
+  outline: 1.5px solid var(--text);
+  outline-offset: 3px;
+  border-radius: 1px;
+}
+.hero :focus-visible,
+.nav-overlay :focus-visible {
+  outline-color: rgba(255,255,255,0.75);
+}
+.hero__cat:focus-visible {
+  outline-color: var(--hero-teal);
+  outline-offset: 4px;
+}
+
+/* ── REDUCED MOTION ────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .nav, .hero__name, .hero__role, .hero__bar { animation: none; }
+  .reveal, .reveal-left { transition: opacity .25s ease; transform: none !important; }
+}
+
+/* ── LOADING PLACEHOLDER (img not yet loaded) ──────────────── */
+.card__art img { background: var(--surface); }
+
+/* ── DETAIL IMAGE TRANSITION ───────────────────────────────── */
+.detail__frame img {
+  animation: imgReveal .32s cubic-bezier(.22,1,.36,1) both;
+}
+@keyframes imgReveal {
+  from { opacity: 0; transform: translateX(var(--img-dir, 0px)) scale(0.97); }
+}
+
+/* ── MOBILE ────────────────────────────────────────────────── */
+
+/* Touch devices */
+@media (hover: none) {
+  .card:active .card__art { opacity: .75; }
+}
+
+/* Mobile nav menu slide-down */
+@keyframes menuDown { from { opacity: 0; transform: translateY(-8px); } }
+@media (max-width: 700px) {
+  .nav--open .nav__links { animation: menuDown .25s cubic-bezier(.22,1,.36,1) both; }
+  .show-more { width: 100%; justify-content: center; }
+  .cat__head { gap: 12px; }
+}
+
+/* Detail: bigger tap targets on mobile */
+@media (max-width: 700px) {
+  .detail__arrow { width: 52px; height: 52px; }
+  .detail__stage { padding-left: clamp(28px, 8vw, 60px); padding-right: clamp(28px, 8vw, 60px); }
+}
+
+/* Safe area insets (notched phones, Dynamic Island) */
+@supports (padding: env(safe-area-inset-top)) {
+  .nav {
+    height: calc(56px + env(safe-area-inset-top));
+    padding-top: env(safe-area-inset-top);
+  }
+  .app { padding-top: calc(56px + env(safe-area-inset-top)); }
+  .detail { padding-top: env(safe-area-inset-top); }
+  .foot { padding-bottom: max(22px, calc(10px + env(safe-area-inset-bottom))); }
+}
+</style>
+</head>
+<body>
+<a href="#main" class="skip-link">Към съдържанието</a>
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
+
+<script src="data.js"></script>
+<script src="config.js"></script>
+
+<script type="text/babel">
+/* eslint-disable */
+const { useState, useEffect, useCallback, useRef, useMemo } = React;
+
+// Respect prefers-reduced-motion for all imperative scrolls
+function scrollBehavior() {
+  return window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+}
+
+// ── data adapter ─────────────────────────────────────────────────────────────
+// Converts window.SECTIONS (existing format) → flat WORKS + SECTIONS_LIST
+
+function parseRatio(r) {
+  if (!r) return 1;
+  const parts = String(r).split('/');
+  return parts.length === 2 ? Number(parts[0]) / Number(parts[1]) : Number(r) || 1;
+}
+
+const SECTIONS_LIST = (window.SECTIONS || []).map((sec, i) => ({
+  id:        sec.id,
+  label:     sec.name,
+  labelRo:   sec.nameRoman,
+  desc:      sec.desc || '',
+  num:       String(i + 1).padStart(2, '0'),
+  // preview: array of work IDs to pin as the 6 shown before "show more"
+  // Leave empty [] to auto-use the 6 newest works
+  preview:   Array.isArray(sec.preview) ? sec.preview : [],
+}));
+
+// Works stored oldest-first in data.js → reverse each section for newest-first display
+const WORKS = (window.SECTIONS || []).flatMap(sec =>
+  [...(sec.works || [])].reverse().map(w => ({
+    id:       w.id,
+    cat:      sec.id,
+    title:    w.title || w.id,
+    year:     w.year  || '',
+    tech:     [w.medium, w.size].filter(Boolean).join(' · '),
+    thumb:    w.thumb,
+    display:  w.display || w.thumb,
+    ratio:    w.ratio || '1/1',
+    ratioNum: parseRatio(w.ratio),
+  }))
+);
+
+const HERO  = window.HERO  || {};
+const ABOUT = window.ABOUT || {};
+
+// ── NAV ──────────────────────────────────────────────────────────────────────
+function Nav({ onJump, theme, toggleTheme, menuOpen, setMenuOpen, scrolled, activeSection }) {
+  const instagram = HERO.instagram || null;
+  const linkedin  = HERO.linkedin  || null;
+
+  const go = (id) => { onJump(id); setMenuOpen(false); };
+
+  // Close overlay on Escape
+  useEffect(() => {
+    if (!menuOpen) return;
+    const handler = e => { if (e.key === 'Escape') setMenuOpen(false); };
+    window.addEventListener('keydown', handler);
+    return () => window.removeEventListener('keydown', handler);
+  }, [menuOpen]);
+
+  return (
+    <>
+      <nav className={[
+        'nav',
+        scrolled   ? 'nav--scrolled'   : '',
+        menuOpen   ? 'nav--menu-open'  : '',
+      ].filter(Boolean).join(' ')}>
+
+        {/* Brand */}
+        <button className="brand" onClick={() => go('hero')}>
+          {HERO.name || 'Борис'}&nbsp;{HERO.nameItalic || 'Цанков'}
+        </button>
+
+        {/* Inline links — visible only when scrolled (desktop) */}
+        <ul className="nav__links">
+          {SECTIONS_LIST.map(s =>
+            <li key={s.id}>
+              <button className={activeSection === s.id ? 'active' : ''} onClick={() => go(s.id)}>{s.label}</button>
+            </li>
+          )}
+          <li><button className={activeSection === 'bio' ? 'active' : ''} onClick={() => go('bio')}>Биография</button></li>
+        </ul>
+
+        {/* Right cluster */}
+        <div className="nav__right">
+          <button className="theme-btn" onClick={toggleTheme} title="Смени тема" aria-label="Смени тема">
+            {theme === 'light' ? '◑' : '○'}
+          </button>
+          {/* Hairline trigger → × */}
+          <button
+            className="menu-trigger"
+            onClick={() => setMenuOpen(o => !o)}
+            aria-label={menuOpen ? 'Затвори меню' : 'Отвори меню'}
+            aria-expanded={menuOpen}
+          >
+            <span className="menu-trigger__line" />
+            <span className="menu-trigger__line" />
+          </button>
+        </div>
+      </nav>
+
+      {/* ── Full-screen overlay ──────────────────────────────── */}
+      <div
+        className={`nav-overlay${menuOpen ? ' nav-overlay--open' : ''}`}
+        aria-hidden={!menuOpen}
+        role="dialog"
+        aria-label="Навигация"
+      >
+        <nav className="nav-overlay__list" aria-label="Секции">
+          {SECTIONS_LIST.map((s, i) => (
+            <button
+              key={s.id}
+              className="nav-overlay__item"
+              style={{ '--i': i }}
+              onClick={() => go(s.id)}
+              tabIndex={menuOpen ? 0 : -1}
+            >
+              <span className="nav-overlay__num">{s.num}</span>
+              <span className="nav-overlay__label">{s.label}</span>
+            </button>
+          ))}
+          <button
+            className="nav-overlay__item"
+            style={{ '--i': SECTIONS_LIST.length }}
+            onClick={() => go('bio')}
+            tabIndex={menuOpen ? 0 : -1}
+          >
+            <span className="nav-overlay__num">{String(SECTIONS_LIST.length + 1).padStart(2, '0')}</span>
+            <span className="nav-overlay__label">Биография</span>
+          </button>
+        </nav>
+
+        {/* Social links in overlay footer */}
+        <div className="nav-overlay__foot">
+          {instagram && (
+            <a href={instagram} target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"
+                   strokeLinecap="round" strokeLinejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5"/>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" strokeWidth="2"/>
+              </svg>
+              Instagram
+            </a>
+          )}
+          {linkedin && (
+            <a href={linkedin} target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"
+                   strokeLinecap="round" strokeLinejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                <rect x="2" y="9" width="4" height="12"/>
+                <circle cx="4" cy="4" r="2"/>
+              </svg>
+              LinkedIn
+            </a>
+          )}
+        </div>
+      </div>
+    </>
+  );
+}
+
+// ── HERO ─────────────────────────────────────────────────────────────────────
+function Hero({ onScrollDown, onJump }) {
+  const heroSrc   = HERO.heroImage || '';
+  const subtitle  = HERO.subtitle  || 'Художник · 3D артист';
+  const instagram = HERO.instagram || null;
+  const linkedin  = HERO.linkedin  || null;
+
+  const firstName = HERO.name      || 'Борис';
+  const lastName  = HERO.nameItalic || 'Цанков';
+
+  // Subtle parallax on the photo
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const hero = document.getElementById('hero');
+    if (!hero) return;
+    const onScroll = () => {
+      const y = window.scrollY;
+      if (y > hero.offsetHeight) return;
+      const img = hero.querySelector('.hero__media img');
+      if (img) img.style.transform = `translateY(${y * 0.14}px)`;
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  return (
+    <section className="hero" id="hero">
+
+      {/* Full-bleed image */}
+      <div className="hero__media">
+        {heroSrc && <img src={heroSrc} alt="" fetchpriority="high" />}
+      </div>
+
+      {/* Dark overlay */}
+      <div className="hero__overlay" aria-hidden="true" />
+
+      {/* Name + rule + subtitle + social */}
+      <div className="hero__content">
+        <h1 className="hero__name">
+          <span>{firstName}</span>
+          {lastName}
+        </h1>
+        <div className="hero__rule" aria-hidden="true" />
+        <div className="hero__role">{subtitle}</div>
+
+        {(instagram || linkedin) && (
+          <div className="hero__social">
+            {instagram && (
+              <a href={instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" strokeWidth="2"/>
+                </svg>
+                Instagram
+              </a>
+            )}
+            {linkedin && (
+              <a href={linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                  <rect x="2" y="9" width="4" height="12"/>
+                  <circle cx="4" cy="4" r="2"/>
+                </svg>
+                LinkedIn
+              </a>
+            )}
+          </div>
+        )}
+
+        {/* Category nav — centered, pipe-separated */}
+        {SECTIONS_LIST.length > 0 && (
+          <nav className="hero__cats" aria-label="Категории">
+            {SECTIONS_LIST.map(s => (
+              <button
+                key={s.id}
+                className="hero__cat"
+                onClick={() => onJump ? onJump(s.id) : document.getElementById(s.id)?.scrollIntoView({ behavior: 'smooth' })}
+              >
+                {s.label}
+              </button>
+            ))}
+          </nav>
+        )}
+      </div>
+
+      {/* Scroll indicator — centered bottom */}
+      <div className="hero__bar">
+        <button className="hero__scroll" onClick={onScrollDown} aria-label="Превъртете надолу">
+          <svg width="16" height="16" viewBox="0 0 20 20" fill="none"
+            stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M10,3 L10,16 M5,11 L10,16 L15,11"/>
+          </svg>
+        </button>
+      </div>
+
+    </section>
+  );
+}
+
+// ── WORK CARD ─────────────────────────────────────────────────────────────────
+function WorkCard({ work, onOpen, stagger = 0 }) {
+  const ref = useRef(null);
+  useEffect(() => {
+    const el = ref.current; if (!el) return;
+    const obs = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) { el.classList.add('visible'); obs.unobserve(el); }
+    }, { threshold: 0.12 });
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
+  return (
+    <button
+      ref={ref}
+      className="card reveal"
+      style={{ '--stagger': stagger + 'ms' }}
+      onClick={() => onOpen(work.id)}
+      aria-label={`Отвори ${work.title}`}
+    >
+      <div className="card__art" style={{ aspectRatio: work.ratio }}>
+        <img
+          src={work.thumb}
+          alt={work.title}
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+      <div className="card__meta">
+        <h3 className="card__title">{work.title}</h3>
+        {(work.tech || work.year) &&
+          <div className="card__tech">
+            {[work.tech, work.year].filter(Boolean).join(' · ')}
+          </div>
+        }
+      </div>
+    </button>
+  );
+}
+
+// ── GALLERY SECTION ───────────────────────────────────────────────────────────
+const PREVIEW = 6;
+
+function CategorySection({ sec, works, onOpen }) {
+  const [expanded, setExpanded] = useState(false);
+  const headRef = useRef(null);
+
+  useEffect(() => {
+    const el = headRef.current; if (!el) return;
+    const obs = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) { el.classList.add('visible'); obs.unobserve(el); }
+    }, { threshold: 0.15 });
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
+  // Preview: use pinned IDs from sec.preview, else first 6 newest
+  const previewWorks = useMemo(() => {
+    if (sec.preview && sec.preview.length > 0) {
+      return sec.preview
+        .map(pid => works.find(w => w.id === pid))
+        .filter(Boolean)
+        .slice(0, PREVIEW);
+    }
+    return works.slice(0, PREVIEW);
+  }, [works, sec.preview]);
+
+  const visible   = expanded ? works : previewWorks;
+  const remaining = works.length - previewWorks.length;
+
+  return (
+    <section className="cat" id={sec.id}>
+      <header ref={headRef} className="cat__head reveal-left">
+        <div className="cat__head-num">{sec.num}</div>
+        <h2 className="cat__head-title">{sec.label}</h2>
+        <div className="cat__head-count">
+          {works.length}&nbsp;{works.length === 1 ? 'работа' : 'работи'}
+        </div>
+      </header>
+      <div className="gallery-grid">
+        {visible.map((w, i) =>
+          <WorkCard
+            key={w.id}
+            work={w}
+            onOpen={onOpen}
+            stagger={Math.min(i, 5) * 55}
+          />
+        )}
+      </div>
+      <div className="gallery-btns">
+        {!expanded && remaining > 0 &&
+          <button className="show-more" onClick={() => setExpanded(true)}>
+            <span>Виж всички {works.length} работи</span>
+            <svg width="14" height="14" viewBox="0 0 20 20" fill="none"
+              stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M4,10 L16,10 M11,5 L16,10 L11,15"/>
+            </svg>
+          </button>
+        }
+        {expanded &&
+          <button className="show-less" onClick={() => {
+            setExpanded(false);
+            setTimeout(() => headRef.current?.scrollIntoView({ behavior: scrollBehavior(), block: 'start' }), 50);
+          }}>
+            <svg width="14" height="14" viewBox="0 0 20 20" fill="none"
+              stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M16,10 L4,10 M9,5 L4,10 L9,15"/>
+            </svg>
+            <span>Скрий разширените</span>
+          </button>
+        }
+      </div>
+    </section>
+  );
+}
+
+// ── WORK DETAIL ───────────────────────────────────────────────────────────────
+function WorkDetail({ workId, onClose, onNav, navDir }) {
+  const idx      = WORKS.findIndex(w => w.id === workId);
+  const work     = WORKS[idx];
+  const sec      = SECTIONS_LIST.find(s => s.id === work?.cat);
+  const closeRef = useRef(null);
+
+  // Per-category position for honest breadcrumb
+  const catWorks = work ? WORKS.filter(w => w.cat === work.cat) : [];
+  const catIdx   = work ? catWorks.findIndex(w => w.id === work.id) : -1;
+  const catTotal = catWorks.length;
+
+  // Move focus into dialog on open
+  useEffect(() => { closeRef.current?.focus(); }, []);
+
+  // Keyboard navigation + body scroll lock
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    const handler = e => {
+      if (e.key === 'Escape')     onClose();
+      if (e.key === 'ArrowLeft')  onNav(-1);
+      if (e.key === 'ArrowRight') onNav(1);
+    };
+    window.addEventListener('keydown', handler);
+    return () => {
+      window.removeEventListener('keydown', handler);
+      document.body.style.overflow = '';
+    };
+  }, [onClose, onNav]);
+
+  // Touch swipe to navigate
+  useEffect(() => {
+    let startX = 0, startY = 0;
+    const onStart = e => { startX = e.touches[0].clientX; startY = e.touches[0].clientY; };
+    const onEnd   = e => {
+      const dx = e.changedTouches[0].clientX - startX;
+      const dy = Math.abs(e.changedTouches[0].clientY - startY);
+      if (Math.abs(dx) > 48 && Math.abs(dx) > dy) onNav(dx < 0 ? 1 : -1);
+    };
+    window.addEventListener('touchstart', onStart, { passive: true });
+    window.addEventListener('touchend',   onEnd,   { passive: true });
+    return () => {
+      window.removeEventListener('touchstart', onStart);
+      window.removeEventListener('touchend',   onEnd);
+    };
+  }, [onNav]);
+
+  if (!work) return null;
+
+  return (
+    <div className="detail" role="dialog" aria-modal="true">
+      <div className="detail__top">
+        <button ref={closeRef} className="detail__close" onClick={onClose}>
+          <svg width="14" height="14" viewBox="0 0 20 20" fill="none"
+            stroke="currentColor" strokeWidth="1.2" strokeLinecap="round">
+            <path d="M4,10 L16,10 M4,10 L9,5 M4,10 L9,15"/>
+          </svg>
+          Назад
+        </button>
+        <div className="detail__crumb">
+          {sec?.label} · {String(catIdx + 1).padStart(2, '0')} от {catTotal}
+        </div>
+      </div>
+
+      <button className="detail__arrow detail__arrow--l" onClick={() => onNav(-1)} aria-label="Предишна">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+          stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M14,4 L6,10 L14,16"/>
+        </svg>
+      </button>
+
+      <button className="detail__arrow detail__arrow--r" onClick={() => onNav(1)} aria-label="Следваща">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+          stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M6,4 L14,10 L6,16"/>
+        </svg>
+      </button>
+
+      <div className="detail__stage" onClick={onClose}>
+        <div className="detail__frame" onClick={e => e.stopPropagation()}>
+          <img
+            key={work.id}
+            src={work.display}
+            alt={work.title}
+            style={{ aspectRatio: work.ratio, '--img-dir': (navDir * 32) + 'px' }}
+          />
+        </div>
+        <div className="detail__caption" onClick={e => e.stopPropagation()}>
+          <h2 className="detail__title">{work.title}</h2>
+          {(work.tech || work.year) &&
+            <div className="detail__meta">
+              {work.tech && <span>{work.tech}</span>}
+              {work.tech && work.year && <span>·</span>}
+              {work.year && <span>{work.year}</span>}
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ── BIO LIST BLOCK ────────────────────────────────────────────────────────────
+function BioBlock({ title, rows, className }) {
+  if (!rows || !rows.length) return null;
+  return (
+    <div className={`bio__section${className ? ' ' + className : ''}`}>
+      <div className="bio__section-title">{title}</div>
+      {rows.map((r, i) => (
+        <div key={i} className="bio__entry">
+          <span className="bio__entry-year">{r.year || ''}</span>
+          <span className="bio__entry-text">{r.text || ''}</span>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+// ── BIO SECTION ───────────────────────────────────────────────────────────────
+function BioSection() {
+  const secNum   = String(SECTIONS_LIST.length + 1).padStart(2, '0');
+  const bio      = ABOUT.bio         || [];
+  const edu      = ABOUT.education   || [];
+  const proj     = ABOUT.projects    || [];
+  const teach    = ABOUT.teaching    || [];
+  const awards   = ABOUT.awards      || [];
+  const exh      = ABOUT.exhibitions || [];
+  const cont     = ABOUT.contact     || [];
+  const photo    = ABOUT.photo       || '';
+  const fullName = ABOUT.name        || 'Борис Цанков';
+  const role     = ABOUT.role        || '';
+  const headRef  = useRef(null);
+
+  useEffect(() => {
+    const el = headRef.current; if (!el) return;
+    const obs = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) { el.classList.add('visible'); obs.unobserve(el); }
+    }, { threshold: 0.15 });
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
+  return (
+    <section className="bio" id="bio">
+      <header ref={headRef} className="cat__head reveal-left">
+        <div className="cat__head-num">{secNum}</div>
+        <h2 className="cat__head-title">Биография</h2>
+      </header>
+
+      {/* ── Intro: small photo + name + bio text ── */}
+      <div className="bio__intro">
+        <div className="bio__photo">
+          {photo
+            ? <img src={photo} alt={fullName} />
+            : <div className="bio__photo-placeholder">Портрет</div>
+          }
+        </div>
+        <div className="bio__intro-text">
+          <div className="bio__name">{fullName}</div>
+          {role && <div className="bio__role">{role}</div>}
+          {bio.length > 0 &&
+            <div className="bio__paras">
+              {bio.map((p, i) => <p key={i}>{p}</p>)}
+            </div>
+          }
+        </div>
+      </div>
+
+      {/* ── Education + Awards — side-by-side ── */}
+      {(edu.length > 0 || awards.length > 0) && (
+        <div className="bio__pair">
+          <BioBlock title="Образование"  rows={edu}    />
+          <BioBlock title="Награди"      rows={awards} />
+        </div>
+      )}
+
+      {/* ── Projects + Teaching — side-by-side ── */}
+      {(proj.length > 0 || teach.length > 0) && (
+        <div className="bio__pair">
+          <BioBlock title="Проекти"               rows={proj}  />
+          <BioBlock title="Преподавателска дейност" rows={teach} />
+        </div>
+      )}
+
+      {/* ── Exhibitions — full width, 2-column grid ── */}
+      {exh.length > 0 && (
+        <div className="bio__section">
+          <div className="bio__section-title">Изложби</div>
+          <div className="bio__exh-grid">
+            {exh.map((e, i) => (
+              <div key={i} className="bio__entry">
+                <span className="bio__entry-year">{e.year || ''}</span>
+                <span className="bio__entry-text">{e.text || ''}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* ── Contact ── */}
+      {cont.length > 0 && (
+        <div className="bio__contact">
+          {cont.map((c, i) => (
+            <div key={i} className="bio__contact-item">
+              <span className="bio__contact-key">{c.label}</span>
+              <span>{c.value}</span>
+            </div>
+          ))}
+        </div>
+      )}
+    </section>
+  );
+}
+
+// ── APP ───────────────────────────────────────────────────────────────────────
+function App() {
+  const [openId,        setOpenId]        = useState(null);
+  const [navDir,        setNavDir]        = useState(0);
+  const [theme,         setTheme]         = useState('dark');
+  const [menuOpen,      setMenuOpen]      = useState(false);
+  const [scrolled,      setScrolled]      = useState(false);
+  const [activeSection, setActiveSection] = useState(null);
+
+  // Transparent nav over hero, solid when scrolled
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > window.innerHeight * 0.75);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  // Track active section for nav highlighting
+  useEffect(() => {
+    const ids = [...SECTIONS_LIST.map(s => s.id), 'bio'];
+    // rootMargin: section is "active" when it enters the middle band of the viewport
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) setActiveSection(entry.target.id);
+      });
+    }, { rootMargin: '-12% 0px -52% 0px', threshold: 0 });
+    // Small delay so all section els are mounted before observing
+    const t = setTimeout(() => {
+      ids.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) observer.observe(el);
+      });
+    }, 200);
+    return () => { clearTimeout(t); observer.disconnect(); };
+  }, []);
+
+  // Reset active when back at top (hero visible)
+  useEffect(() => {
+    if (!scrolled) setActiveSection(null);
+  }, [scrolled]);
+
+  // Group works by section
+  const grouped = useMemo(() => {
+    const out = {};
+    for (const s of SECTIONS_LIST) out[s.id] = [];
+    for (const w of WORKS) { if (out[w.cat]) out[w.cat].push(w); }
+    return out;
+  }, []);
+
+  // Apply theme
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme;
+    document.documentElement.style.colorScheme = theme;
+    // Persist across refreshes
+    try { localStorage.setItem('bct-theme', theme); } catch(e) {}
+  }, [theme]);
+
+  // Restore theme on load
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem('bct-theme');
+      if (saved === 'dark' || saved === 'light') setTheme(saved);
+    } catch(e) {}
+  }, []);
+
+  const toggleTheme = useCallback(() => {
+    setTheme(t => t === 'light' ? 'dark' : 'light');
+  }, []);
+
+  const jump = useCallback(id => {
+    setMenuOpen(false);
+    const behavior = scrollBehavior();
+    if (id === 'hero') {
+      window.scrollTo({ top: 0, behavior });
+      return;
+    }
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior, block: 'start' });
+  }, []);
+
+  const scrollDown = useCallback(() => {
+    const first = SECTIONS_LIST[0];
+    if (first) jump(first.id);
+  }, [jump]);
+
+  const onOpen  = useCallback(id => { setNavDir(0); setOpenId(id); }, []);
+  const onClose = useCallback(()  => setOpenId(null), []);
+  const onNav   = useCallback(dir => {
+    setNavDir(dir);
+    setOpenId(curr => {
+      const i    = WORKS.findIndex(w => w.id === curr);
+      const next = (i + dir + WORKS.length) % WORKS.length;
+      return WORKS[next].id;
+    });
+  }, []);
+
+  return (
+    <>
+      <Nav
+        onJump={jump}
+        theme={theme}
+        toggleTheme={toggleTheme}
+        menuOpen={menuOpen}
+        setMenuOpen={setMenuOpen}
+        scrolled={scrolled}
+        activeSection={activeSection}
+      />
+
+      <main className="app" id="main">
+        <Hero onScrollDown={scrollDown} onJump={jump} />
+
+        {SECTIONS_LIST.map(sec =>
+          <CategorySection
+            key={sec.id}
+            sec={sec}
+            works={grouped[sec.id] || []}
+            onOpen={onOpen}
+          />
+        )}
+
+        <BioSection />
+
+        <footer className="foot">
+          <div>© {ABOUT.name || HERO.name || 'Борис Цанков'}, {new Date().getFullYear()}</div>
+          {ABOUT.contact?.[0]?.value && (
+            <a className="foot__email" href={`mailto:${ABOUT.contact[0].value}`}>
+              {ABOUT.contact[0].value}
+            </a>
+          )}
+          <button className="foot__top" onClick={() => window.scrollTo({ top: 0, behavior: scrollBehavior() })}>
+            <svg width="10" height="10" viewBox="0 0 20 20" fill="none"
+              stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M10,17 L10,4 M5,9 L10,4 L15,9"/>
+            </svg>
+            Горе
+          </button>
+        </footer>
+      </main>
+
+      {openId &&
+        <WorkDetail workId={openId} onClose={onClose} onNav={onNav} navDir={navDir} />
+      }
+    </>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>
