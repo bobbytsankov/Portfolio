@@ -1396,6 +1396,7 @@ window.SECTIONS = [
         "medium": "",
         "size": "",
         "ratio": "3/4",
+        "objectPosition": "top",
         "thumb": "img/thumb/COS_032.webp",
         "display": "img/display/COS_032.webp"
       },
@@ -1416,6 +1417,7 @@ window.SECTIONS = [
         "medium": "",
         "size": "",
         "ratio": "3/4",
+        "objectPosition": "top",
         "thumb": "img/thumb/COS_034.webp",
         "display": "img/display/COS_034.webp"
       },
@@ -1426,6 +1428,7 @@ window.SECTIONS = [
         "medium": "",
         "size": "",
         "ratio": "3/4",
+        "objectPosition": "top",
         "thumb": "img/thumb/COS_035.webp",
         "display": "img/display/COS_035.webp"
       }

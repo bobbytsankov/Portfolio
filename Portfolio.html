@@ -1585,6 +1585,7 @@ function WorkCard({ work, onOpen, stagger = 0, isPreview = false }) {
           alt={work.title}
           loading="lazy"
           decoding="async"
+          style={isPreview && work.objectPosition ? { objectPosition: work.objectPosition } : undefined}
         />
       </div>
       <div className="card__meta">
