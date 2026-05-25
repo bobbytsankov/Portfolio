@@ -699,6 +699,44 @@ img     { display: block; max-width: 100%; }
           mask-repeat: no-repeat;
 }
 
+/* ── PREVIEW MOSAIC — tight image wall, no metadata ───────── */
+.gallery-grid--preview {
+  column-gap: 3px;
+  margin-bottom: -3px;
+}
+.gallery-grid--preview .card {
+  margin-bottom: 3px;
+  position: relative;
+}
+/* torn-paper off in mosaic mode — too noisy at tight spacing */
+.gallery-grid--preview[data-paper="on"] .card::before { display: none; }
+
+/* title overlay on hover in preview mode */
+.gallery-grid--preview .card__art {
+  position: relative;
+}
+.gallery-grid--preview .card__art::after {
+  content: attr(data-title);
+  position: absolute; inset: 0;
+  display: flex; align-items: flex-end;
+  padding: 28px 12px 10px;
+  background: linear-gradient(transparent 45%, rgba(0,0,0,0.55));
+  color: #f0f0ee;
+  font-family: var(--f-display);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0;
+  transition: opacity .25s ease;
+  pointer-events: none;
+}
+.gallery-grid--preview .card:hover .card__art::after { opacity: 1; }
+.gallery-grid--preview .card:hover .card__art { opacity: 1; }
+
+/* hide metadata in preview — title is in the hover overlay */
+.gallery-grid--preview .card__meta { display: none; }
+
 .card__meta {
   display: flex; flex-direction: column; gap: 3px;
   margin-top: 12px;
@@ -1521,7 +1559,7 @@ function WorkCard({ work, onOpen, stagger = 0 }) {
       onClick={() => onOpen(work.id)}
       aria-label={`Отвори ${work.title}`}
     >
-      <div className="card__art" style={{ aspectRatio: work.ratio }}>
+      <div className="card__art" style={{ aspectRatio: work.ratio }} data-title={work.title}>
         <img
           src={work.thumb}
           alt={work.title}
@@ -1580,7 +1618,7 @@ function CategorySection({ sec, works, onOpen }) {
           {works.length}&nbsp;{works.length === 1 ? 'работа' : 'работи'}
         </div>
       </header>
-      <div className="gallery-grid">
+      <div className={`gallery-grid${!expanded ? ' gallery-grid--preview' : ''}`}>
         {visible.map((w, i) =>
           <WorkCard
             key={w.id}
