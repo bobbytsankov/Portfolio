@@ -1625,9 +1625,9 @@ function CategorySection({ sec, works, onOpen }) {
   useEffect(() => {
     if (expanded && !wasExpanded.current) {
       requestAnimationFrame(() => {
-        const firstNew = gridRef.current?.children[previewWorks.length];
-        if (!firstNew) return;
-        const top = firstNew.getBoundingClientRect().top + window.scrollY - 80;
+        const section = headRef.current?.closest('section');
+        if (!section) return;
+        const top = section.getBoundingClientRect().top + window.scrollY - 76;
         window.scrollTo({ top, behavior: scrollBehavior() });
       });
     }
