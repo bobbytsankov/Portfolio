@@ -1155,7 +1155,7 @@ img     { display: block; max-width: 100%; }
 
 /* ── MOBILE DETAIL — full-screen immersive viewer ─────────── */
 @media (max-width: 700px) {
-  .detail { background: #0b0b0b; }
+  .detail { background: #0b0b0b; overflow: hidden; }
 
   /* Top bar floats as gradient overlay */
   .detail__top {
@@ -1204,6 +1204,7 @@ img     { display: block; max-width: 100%; }
 }
 @supports (padding: env(safe-area-inset-bottom)) {
   @media (max-width: 700px) {
+    .detail { padding-bottom: env(safe-area-inset-bottom); }
     .detail__caption { padding-bottom: calc(clamp(20px, 4vh, 32px) + env(safe-area-inset-bottom)); }
   }
 }
