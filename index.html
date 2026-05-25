@@ -1325,15 +1325,16 @@ const SECTIONS_LIST = (window.SECTIONS || []).map((sec, i) => ({
 // Works stored oldest-first in data.js → reverse each section for newest-first display
 const WORKS = (window.SECTIONS || []).flatMap(sec =>
   [...(sec.works || [])].reverse().map(w => ({
-    id:       w.id,
-    cat:      sec.id,
-    title:    w.title || w.id,
-    year:     w.year  || '',
-    tech:     [w.medium, w.size].filter(Boolean).join(' · '),
-    thumb:    w.thumb,
-    display:  w.display || w.thumb,
-    ratio:    w.ratio || '1/1',
-    ratioNum: parseRatio(w.ratio),
+    id:             w.id,
+    cat:            sec.id,
+    title:          w.title || w.id,
+    year:           w.year  || '',
+    tech:           [w.medium, w.size].filter(Boolean).join(' · '),
+    thumb:          w.thumb,
+    display:        w.display || w.thumb,
+    ratio:          w.ratio || '1/1',
+    ratioNum:       parseRatio(w.ratio),
+    objectPosition: w.objectPosition || null,
   }))
 );
 
