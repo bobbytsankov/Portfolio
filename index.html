@@ -783,10 +783,10 @@ img     { display: block; max-width: 100%; }
   position: fixed; inset: 0; z-index: 200;
   background: var(--bg);
   display: flex; flex-direction: column;
-  animation: detailIn .22s ease both;
+  animation: detailIn .38s cubic-bezier(.22,1,.36,1) both;
   transition: background .3s;
 }
-@keyframes detailIn { from { opacity: 0; transform: scale(0.98) translateY(10px); } to { opacity: 1; transform: scale(1) translateY(0); } }
+@keyframes detailIn { from { opacity: 0; transform: translateY(18px); } }
 .detail__top {
   flex-shrink: 0;
   display: flex; justify-content: space-between; align-items: center;
@@ -1108,16 +1108,26 @@ img     { display: block; max-width: 100%; }
 
 /* ── SCROLL FADE-IN ────────────────────────────────────────── */
 .reveal {
-  opacity: 0; transform: translateY(18px);
-  transition: opacity .55s ease, transform .55s ease;
+  opacity: 0; transform: translateY(14px);
+  transition: opacity .62s cubic-bezier(.22,1,.36,1), transform .62s cubic-bezier(.22,1,.36,1);
   transition-delay: var(--stagger, 0ms);
 }
 .reveal.visible { opacity: 1; transform: translateY(0); }
 
+/* ── EXPANDED CARDS — CSS animation, no IntersectionObserver  */
+/* fires the moment the element mounts; reliable on iOS        */
+@keyframes cardIn {
+  from { opacity: 0; transform: translateY(14px); }
+}
+.card--new {
+  animation: cardIn .62s cubic-bezier(.22,1,.36,1) both;
+  animation-delay: var(--stagger, 0ms);
+}
+
 /* ── REVEAL LEFT (section headers) ────────────────────────── */
 .reveal-left {
   opacity: 0; transform: translateX(-22px);
-  transition: opacity .65s cubic-bezier(.22,1,.36,1), transform .65s cubic-bezier(.22,1,.36,1);
+  transition: opacity .72s cubic-bezier(.22,1,.36,1), transform .72s cubic-bezier(.22,1,.36,1);
 }
 .reveal-left.visible { opacity: 1; transform: translateX(0); }
 
@@ -1188,10 +1198,10 @@ img     { display: block; max-width: 100%; }
 
 /* ── DETAIL IMAGE TRANSITION ───────────────────────────────── */
 .detail__frame img {
-  animation: imgReveal .32s cubic-bezier(.22,1,.36,1) both;
+  animation: imgReveal .42s cubic-bezier(.22,1,.36,1) both;
 }
 @keyframes imgReveal {
-  from { opacity: 0; transform: translateX(var(--img-dir, 0px)) scale(0.97); }
+  from { opacity: 0; transform: translateX(var(--img-dir, 0px)) scale(0.98); }
 }
 
 /* ── MOBILE ────────────────────────────────────────────────── */
@@ -1561,21 +1571,22 @@ function Hero({ onScrollDown, onJump }) {
 }
 
 // ── WORK CARD ─────────────────────────────────────────────────────────────────
-function WorkCard({ work, onOpen, stagger = 0, isPreview = false }) {
+function WorkCard({ work, onOpen, stagger = 0, isPreview = false, isNew = false }) {
   const ref = useRef(null);
   useEffect(() => {
+    if (isNew) return; // CSS @keyframes animation handles it — no observer needed
     const el = ref.current; if (!el) return;
     const obs = new IntersectionObserver(([e]) => {
       if (e.isIntersecting) { el.classList.add('visible'); obs.unobserve(el); }
     }, { threshold: 0.12 });
     obs.observe(el);
     return () => obs.disconnect();
-  }, []);
+  }, [isNew]);
 
   return (
     <button
       ref={ref}
-      className="card reveal"
+      className={isNew ? 'card card--new' : 'card reveal'}
       style={{ '--stagger': stagger + 'ms' }}
       onClick={() => onOpen(work.id)}
       aria-label={`Отвори ${work.title}`}
@@ -1641,14 +1652,23 @@ function CategorySection({ sec, works, onOpen }) {
         </div>
       </header>
       <div className={`gallery-grid${!expanded ? ' gallery-grid--preview' : ''}`}>
-        {visible.map((w, i) =>
+        {visible.map((w, i) => {
+          const isNew = expanded && i >= previewWorks.length;
+          const newIdx = i - previewWorks.length;
+          const stagger = isNew
+            ? Math.min(newIdx, 14) * 38   // stagger new cards: 0,38,76…ms
+            : Math.min(i, 5) * 55;         // scroll-reveal stagger for preview
+          return (
           <WorkCard
             key={w.id}
             work={w}
             onOpen={onOpen}
-            stagger={Math.min(i, 5) * 55}
+            stagger={stagger}
             isPreview={!expanded}
+            isNew={isNew}
           />
+          );
+        }}
         )}
       </div>
       <div className="gallery-btns">
