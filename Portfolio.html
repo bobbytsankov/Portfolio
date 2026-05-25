@@ -1618,6 +1618,21 @@ const PREVIEW = 6;
 function CategorySection({ sec, works, onOpen }) {
   const [expanded, setExpanded] = useState(false);
   const headRef = useRef(null);
+  const gridRef = useRef(null);
+  const wasExpanded = useRef(false);
+
+  // Scroll to first new card after expansion renders
+  useEffect(() => {
+    if (expanded && !wasExpanded.current) {
+      requestAnimationFrame(() => {
+        const firstNew = gridRef.current?.children[previewWorks.length];
+        if (!firstNew) return;
+        const top = firstNew.getBoundingClientRect().top + window.scrollY - 80;
+        window.scrollTo({ top, behavior: scrollBehavior() });
+      });
+    }
+    wasExpanded.current = expanded;
+  }, [expanded]);
 
   useEffect(() => {
     const el = headRef.current; if (!el) return;
@@ -1651,7 +1666,7 @@ function CategorySection({ sec, works, onOpen }) {
           {works.length}&nbsp;{works.length === 1 ? 'работа' : 'работи'}
         </div>
       </header>
-      <div className={`gallery-grid${!expanded ? ' gallery-grid--preview' : ''}`}>
+      <div ref={gridRef} className={`gallery-grid${!expanded ? ' gallery-grid--preview' : ''}`}>
         {visible.map((w, i) => {
           const isNew = expanded && i >= previewWorks.length;
           const newIdx = i - previewWorks.length;
