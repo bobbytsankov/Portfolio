@@ -611,16 +611,17 @@ img     { display: block; max-width: 100%; }
   align-self: center;
 }
 
-/* ── CSS Grid — flows left → right ───────────────────────── */
+/* ── CSS Columns — masonry-style, no gaps ─────────────────── */
+/* Items flow top-to-bottom per column; no dead rows form     */
 .gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--gap);
-  align-items: start;
+  columns: 3;
+  column-gap: var(--gap);
+  /* cancel last item's bottom margin so the section edge is clean */
+  margin-bottom: calc(-1 * var(--gap));
 }
-@media (max-width: 1000px) { .gallery-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 1000px) { .gallery-grid { columns: 2; } }
 @media (max-width: 520px)  {
-  .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .gallery-grid { columns: 2; column-gap: 10px; margin-bottom: -10px; }
   .cat { padding-top: clamp(32px, 5vh, 52px); padding-bottom: clamp(20px, 3vh, 40px); }
   .cat__head { margin-bottom: clamp(16px, 2.5vh, 28px); }
   .cat__head-title { font-size: clamp(24px, 7.5vw, 38px); }
@@ -632,11 +633,13 @@ img     { display: block; max-width: 100%; }
   width: 100%;
   text-align: left;
   background: none;
-  margin: 0;
+  margin: 0 0 var(--gap) 0;   /* spacing between cards within a column */
+  break-inside: avoid;         /* never split a card across columns */
   cursor: pointer;
   position: relative;
   isolation: isolate;
 }
+@media (max-width: 520px) { .card { margin-bottom: 10px; } }
 
 /* torn-paper backing sheet */
 [data-paper="on"] .card::before {
