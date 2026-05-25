@@ -619,7 +619,13 @@ img     { display: block; max-width: 100%; }
   /* cancel last item's bottom margin so the section edge is clean */
   margin-bottom: calc(-1 * var(--gap));
 }
-@media (max-width: 1000px) { .gallery-grid { columns: 2; } }
+@media (max-width: 1000px) {
+  .gallery-grid { columns: 2; }
+  .gallery-grid--preview { grid-template-columns: repeat(2, 1fr); columns: unset; }
+}
+@media (max-width: 520px) {
+  .gallery-grid--preview { grid-template-columns: repeat(2, 1fr); columns: unset; }
+}
 @media (max-width: 520px)  {
   .gallery-grid { columns: 2; column-gap: 10px; margin-bottom: -10px; }
   .cat { padding-top: clamp(32px, 5vh, 52px); padding-bottom: clamp(20px, 3vh, 40px); }
@@ -699,22 +705,31 @@ img     { display: block; max-width: 100%; }
           mask-repeat: no-repeat;
 }
 
-/* ── PREVIEW MOSAIC — tight image wall, no metadata ───────── */
+/* ── PREVIEW MOSAIC — tight image wall, left→right order ──── */
+/* CSS Grid (not columns) so items follow editor selection order */
 .gallery-grid--preview {
-  column-gap: 3px;
-  margin-bottom: -3px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3px;
+  margin-bottom: 0;
+  columns: unset; column-gap: unset; /* cancel the base columns layout */
 }
 .gallery-grid--preview .card {
-  margin-bottom: 3px;
-  position: relative;
+  margin-bottom: 0;  /* gap handled by grid */
+  aspect-ratio: 4/3; /* uniform rows — no dead space */
+  overflow: hidden;
 }
 /* torn-paper off in mosaic mode — too noisy at tight spacing */
-.gallery-grid--preview[data-paper="on"] .card::before { display: none; }
+.gallery-grid--preview .card::before { display: none; }
 
-/* title overlay on hover in preview mode */
+/* image fills the uniform cell, cropped */
 .gallery-grid--preview .card__art {
+  height: 100%;
   position: relative;
 }
+.gallery-grid--preview .card__art img { object-fit: cover; }
+
+/* title overlay on hover in preview mode */
 .gallery-grid--preview .card__art::after {
   content: attr(data-title);
   position: absolute; inset: 0;
@@ -1545,7 +1560,7 @@ function Hero({ onScrollDown, onJump }) {
 }
 
 // ── WORK CARD ─────────────────────────────────────────────────────────────────
-function WorkCard({ work, onOpen, stagger = 0 }) {
+function WorkCard({ work, onOpen, stagger = 0, isPreview = false }) {
   const ref = useRef(null);
   useEffect(() => {
     const el = ref.current; if (!el) return;
@@ -1564,7 +1579,7 @@ function WorkCard({ work, onOpen, stagger = 0 }) {
       onClick={() => onOpen(work.id)}
       aria-label={`Отвори ${work.title}`}
     >
-      <div className="card__art" style={{ aspectRatio: work.ratio }} data-title={work.title}>
+      <div className="card__art" style={isPreview ? undefined : { aspectRatio: work.ratio }} data-title={work.title}>
         <img
           src={work.thumb}
           alt={work.title}
@@ -1630,6 +1645,7 @@ function CategorySection({ sec, works, onOpen }) {
             work={w}
             onOpen={onOpen}
             stagger={Math.min(i, 5) * 55}
+            isPreview={!expanded}
           />
         )}
       </div>
