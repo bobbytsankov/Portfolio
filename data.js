@@ -480,6 +480,549 @@ window.SECTIONS = [
     ]
   },
   {
+    "id": "scenografiya",
+    "name": "Сценография",
+    "nameRoman": "Scenography",
+    "desc": "Проекти за сценична среда — макети, чертежи и реализации.",
+    "preview": [
+      "SCN_007",
+      "SCN_008",
+      "SCN_010",
+      "SCN_014",
+      "SCN_005",
+      "SCN_004"
+    ],
+    "works": [
+      {
+        "id": "SCN_001",
+        "title": "SCN_001",
+        "year": "",
+        "medium": "",
+        "size": "",
+        "ratio": "16/9",
+        "thumb": "img/thumb/SCN_001.webp",
+        "display": "img/display/SCN_001.webp"
+      },
+      {
+        "id": "SCN_002",
+        "title": "SCN_002",
+        "year": "",
+        "medium": "",
+        "size": "",
+        "ratio": "16/9",
+        "thumb": "img/thumb/SCN_002.webp",
+        "display": "img/display/SCN_002.webp"
+      },
+      {
+        "id": "SCN_012",
+        "title": "SCN_012",
+        "year": "",
+        "medium": "",
+        "size": "",
+        "ratio": "3/2",
+        "thumb": "img/thumb/SCN_012.webp",
+        "display": "img/display/SCN_012.webp"
+      },
+      {
+        "id": "SCN_013",
+        "title": "SCN_013",
+        "year": "",
+        "medium": "",
+        "size": "",
+        "ratio": "3/2",
+        "thumb": "img/thumb/SCN_013.webp",
+        "display": "img/display/SCN_013.webp"
+      },
+      {
+        "id": "SCN_014",
+        "title": "SCN_014",
+        "year": "",
+        "medium": "",
+        "size": "",
+        "ratio": "3/2",
+        "thumb": "img/thumb/SCN_014.webp",
+        "display": "img/display/SCN_014.webp"
+      },
+      {
+        "id": "SCN_005",
+        "title": "SCN_005",
+        "year": "",
+        "medium": "",
+        "size": "",
+        "ratio": "16/9",
+        "thumb": "img/thumb/SCN_005.webp",
+        "display": "img/display/SCN_005.webp"
+      },
+      {
+        "id": "SCN_003",
+        "title": "SCN_003",
+        "year": "",
+        "medium": "",
+        "size": "",
+        "ratio": "3/2",
+        "thumb": "img/thumb/SCN_003.webp",
+        "display": "img/display/SCN_003.webp"
+      },
+      {
+        "id": "SCN_004",
+        "title": "SCN_004",
+        "year": "",
+        "medium": "",
+        "size": "",
+        "ratio": "3/2",
+        "thumb": "img/thumb/SCN_004.webp",
+        "display": "img/display/SCN_004.webp"
+      },
+      {
+        "id": "SCN_006",
+        "title": "SCN_006",
+        "year": "",
+        "medium": "",
+        "size": "",
+        "ratio": "3/2",
+        "thumb": "img/thumb/SCN_006.webp",
+        "display": "img/display/SCN_006.webp"
+      },
+      {
+        "id": "SCN_007",
+        "title": "SCN_007",
+        "year": "",
+        "medium": "",
+        "size": "",
+        "ratio": "3/2",
+        "thumb": "img/thumb/SCN_007.webp",
+        "display": "img/display/SCN_007.webp"
+      },
+      {
+        "id": "SCN_008",
+        "title": "SCN_008",
+        "year": "",
+        "medium": "",
+        "size": "",
+        "ratio": "3/2",
+        "thumb": "img/thumb/SCN_008.webp",
+        "display": "img/display/SCN_008.webp"
+      },
+      {
+        "id": "SCN_009",
+        "title": "SCN_009",
+        "year": "",
+        "medium": "",
+        "size": "",
+        "ratio": "4/3",
+        "thumb": "img/thumb/SCN_009.webp",
+        "display": "img/display/SCN_009.webp"
+      },
+      {
+        "id": "SCN_010",
+        "title": "SCN_010",
+        "year": "",
+        "medium": "",
+        "size": "",
+        "ratio": "3/2",
+        "thumb": "img/thumb/SCN_010.webp",
+        "display": "img/display/SCN_010.webp"
+      },
+      {
+        "id": "SCN_011",
+        "title": "SCN_011",
+        "year": "",
+        "medium": "",
+        "size": "",
+        "ratio": "3/2",
+        "thumb": "img/thumb/SCN_011.webp",
+        "display": "img/display/SCN_011.webp"
+      }
+    ]
+  }
+];
+
+,
+,
+,
+,
+
+];
+  {
+    "id": "kostiumi",
+    "name": "Костюми",
+    "nameRoman": "Costume",
+    "desc": "Костюми за театрални и оперни постановки — скици и реализации.",
+    "preview": [
+      "COS_035",
+      "COS_032",
+      "COS_034",
+      "COS_012",
+      "COS_014",
+      "COS_011"
+    ],
+    "works": [
+      {
+        "id": "COS_019",
+        "title": "COS_019",
+        "year": "",
+        "medium": "",
+        "size": "",
+        "ratio": "2/3",
+        "thumb": "img/thumb/COS_019.webp",
+        "display": "img/display/COS_019.webp"
+      },
+      {
+        "id": "COS_020",
+        "title": "COS_020",
+        "year": "",
+        "medium": "",
+        "size": "",
+        "ratio": "2/3",
+        "thumb": "img/thumb/COS_020.webp",
+        "display": "img/display/COS_020.webp"
+      },
+      {
+        "id": "COS_021",
+        "title": "COS_021",
+        "year": "",
+        "medium": "",
+        "size": "",
+        "ratio": "2/3",
+        "thumb": "img/thumb/COS_021.webp",
+        "display": "img/display/COS_021.webp"
+      },
+      {
+        "id": "COS_022",
+        "title": "COS_022",
+        "year": "",
+        "medium": "",
+        "size": "",
+        "ratio": "2/3",
+        "thumb": "img/thumb/COS_022.webp",
+        "display": "img/display/COS_022.webp"
+      },
+      {
+        "id": "COS_023",
+        "title": "COS_023",
+        "year": "",
+        "medium": "",
+        "size": "",
+        "ratio": "2/3",
+        "thumb": "img/thumb/COS_023.webp",
+        "display": "img/display/COS_023.webp"
+      },
+      {
+        "id": "COS_002",
+        "title": "COS_002",
+        "year": "",
+        "medium": "",
+        "size": "",
+        "ratio": "3/2",
+        "thumb": "img/thumb/COS_002.webp",
+        "display": "img/display/COS_002.webp"
+      },
+      {
+        "id": "COS_005",
+        "title": "COS_005",
+        "year": "",
+        "medium": "",
+        "size": "",
+        "ratio": "3/2",
+        "thumb": "img/thumb/COS_005.webp",
+        "display": "img/display/COS_005.webp"
+      },
+      {
+        "id": "COS_004",
+        "title": "COS_004",
+        "year": "",
+        "medium": "",
+        "size": "",
+        "ratio": "3/2",
+        "thumb": "img/thumb/COS_004.webp",
+        "display": "img/display/COS_004.webp"
+      },
+      {
+        "id": "COS_009",
+        "title": "COS_009",
+        "year": "",
+        "medium": "",
+        "size": "",
+        "ratio": "3/2",
+        "thumb": "img/thumb/COS_009.webp",
+        "display": "img/display/COS_009.webp"
+      },
+      {
+        "id": "COS_007",
+        "title": "COS_007",
+        "year": "",
+        "medium": "",
+        "size": "",
+        "ratio": "3/2",
+        "thumb": "img/thumb/COS_007.webp",
+        "display": "img/display/COS_007.webp"
+      },
+      {
+        "id": "COS_001",
+        "title": "COS_001",
+        "year": "",
+        "medium": "",
+        "size": "",
+        "ratio": "3/2",
+        "thumb": "img/thumb/COS_001.webp",
+        "display": "img/display/COS_001.webp"
+      },
+      {
+        "id": "COS_006",
+        "title": "COS_006",
+        "year": "",
+        "medium": "",
+        "size": "",
+        "ratio": "3/2",
+        "thumb": "img/thumb/COS_006.webp",
+        "display": "img/display/COS_006.webp"
+      },
+      {
+        "id": "COS_003",
+        "title": "COS_003",
+        "year": "",
+        "medium": "",
+        "size": "",
+        "ratio": "3/2",
+        "thumb": "img/thumb/COS_003.webp",
+        "display": "img/display/COS_003.webp"
+      },
+      {
+        "id": "COS_010",
+        "title": "COS_010",
+        "year": "",
+        "medium": "",
+        "size": "",
+        "ratio": "3/2",
+        "thumb": "img/thumb/COS_010.webp",
+        "display": "img/display/COS_010.webp"
+      },
+      {
+        "id": "COS_008",
+        "title": "COS_008",
+        "year": "",
+        "medium": "",
+        "size": "",
+        "ratio": "3/2",
+        "thumb": "img/thumb/COS_008.webp",
+        "display": "img/display/COS_008.webp"
+      },
+      {
+        "id": "COS_013",
+        "title": "COS_013",
+        "year": "",
+        "medium": "",
+        "size": "",
+        "ratio": "4/3",
+        "thumb": "img/thumb/COS_013.webp",
+        "display": "img/display/COS_013.webp"
+      },
+      {
+        "id": "COS_018",
+        "title": "COS_018",
+        "year": "",
+        "medium": "",
+        "size": "",
+        "ratio": "4/3",
+        "thumb": "img/thumb/COS_018.webp",
+        "display": "img/display/COS_018.webp"
+      },
+      {
+        "id": "COS_016",
+        "title": "COS_016",
+        "year": "",
+        "medium": "",
+        "size": "",
+        "ratio": "4/3",
+        "thumb": "img/thumb/COS_016.webp",
+        "display": "img/display/COS_016.webp"
+      },
+      {
+        "id": "COS_015",
+        "title": "COS_015",
+        "year": "",
+        "medium": "",
+        "size": "",
+        "ratio": "4/3",
+        "thumb": "img/thumb/COS_015.webp",
+        "display": "img/display/COS_015.webp"
+      },
+      {
+        "id": "COS_011",
+        "title": "COS_011",
+        "year": "",
+        "medium": "",
+        "size": "",
+        "ratio": "4/3",
+        "thumb": "img/thumb/COS_011.webp",
+        "display": "img/display/COS_011.webp"
+      },
+      {
+        "id": "COS_012",
+        "title": "COS_012",
+        "year": "",
+        "medium": "",
+        "size": "",
+        "ratio": "4/3",
+        "thumb": "img/thumb/COS_012.webp",
+        "display": "img/display/COS_012.webp"
+      },
+      {
+        "id": "COS_014",
+        "title": "COS_014",
+        "year": "",
+        "medium": "",
+        "size": "",
+        "ratio": "4/3",
+        "thumb": "img/thumb/COS_014.webp",
+        "display": "img/display/COS_014.webp"
+      },
+      {
+        "id": "COS_017",
+        "title": "COS_017",
+        "year": "",
+        "medium": "",
+        "size": "",
+        "ratio": "3/2",
+        "thumb": "img/thumb/COS_017.webp",
+        "display": "img/display/COS_017.webp"
+      },
+      {
+        "id": "COS_024",
+        "title": "COS_024",
+        "year": "",
+        "medium": "",
+        "size": "",
+        "ratio": "3/4",
+        "thumb": "img/thumb/COS_024.webp",
+        "display": "img/display/COS_024.webp"
+      },
+      {
+        "id": "COS_030",
+        "title": "COS_030",
+        "year": "",
+        "medium": "",
+        "size": "",
+        "ratio": "3/4",
+        "thumb": "img/thumb/COS_030.webp",
+        "display": "img/display/COS_030.webp"
+      },
+      {
+        "id": "COS_026",
+        "title": "COS_026",
+        "year": "",
+        "medium": "",
+        "size": "",
+        "ratio": "3/4",
+        "thumb": "img/thumb/COS_026.webp",
+        "display": "img/display/COS_026.webp"
+      },
+      {
+        "id": "COS_029",
+        "title": "COS_029",
+        "year": "",
+        "medium": "",
+        "size": "",
+        "ratio": "3/4",
+        "thumb": "img/thumb/COS_029.webp",
+        "display": "img/display/COS_029.webp"
+      },
+      {
+        "id": "COS_031",
+        "title": "COS_031",
+        "year": "",
+        "medium": "",
+        "size": "",
+        "ratio": "3/4",
+        "thumb": "img/thumb/COS_031.webp",
+        "display": "img/display/COS_031.webp"
+      },
+      {
+        "id": "COS_027",
+        "title": "COS_027",
+        "year": "",
+        "medium": "",
+        "size": "",
+        "ratio": "3/4",
+        "thumb": "img/thumb/COS_027.webp",
+        "display": "img/display/COS_027.webp"
+      },
+      {
+        "id": "COS_028",
+        "title": "COS_028",
+        "year": "",
+        "medium": "",
+        "size": "",
+        "ratio": "3/4",
+        "thumb": "img/thumb/COS_028.webp",
+        "display": "img/display/COS_028.webp"
+      },
+      {
+        "id": "COS_025",
+        "title": "COS_025",
+        "year": "",
+        "medium": "",
+        "size": "",
+        "ratio": "3/4",
+        "thumb": "img/thumb/COS_025.webp",
+        "display": "img/display/COS_025.webp"
+      },
+      {
+        "id": "COS_033",
+        "title": "COS_033",
+        "year": "",
+        "medium": "",
+        "size": "",
+        "ratio": "3/4",
+        "thumb": "img/thumb/COS_033.webp",
+        "display": "img/display/COS_033.webp"
+      },
+      {
+        "id": "COS_032",
+        "title": "COS_032",
+        "year": "",
+        "medium": "",
+        "size": "",
+        "ratio": "3/4",
+        "objectPosition": "top",
+        "thumb": "img/thumb/COS_032.webp",
+        "display": "img/display/COS_032.webp"
+      },
+      {
+        "id": "COS_036",
+        "title": "COS_036",
+        "year": "",
+        "medium": "",
+        "size": "",
+        "ratio": "3/4",
+        "thumb": "img/thumb/COS_036.webp",
+        "display": "img/display/COS_036.webp"
+      },
+      {
+        "id": "COS_034",
+        "title": "COS_034",
+        "year": "",
+        "medium": "",
+        "size": "",
+        "ratio": "3/4",
+        "objectPosition": "top",
+        "thumb": "img/thumb/COS_034.webp",
+        "display": "img/display/COS_034.webp"
+      },
+      {
+        "id": "COS_035",
+        "title": "COS_035",
+        "year": "",
+        "medium": "",
+        "size": "",
+        "ratio": "3/4",
+        "objectPosition": "top",
+        "thumb": "img/thumb/COS_035.webp",
+        "display": "img/display/COS_035.webp"
+      }
+    ]
+  },
+  {
     "id": "3d",
     "name": "3D",
     "nameRoman": "3D",
@@ -1056,385 +1599,6 @@ window.SECTIONS = [
     ]
   },
   {
-    "id": "kostiumi",
-    "name": "Костюми",
-    "nameRoman": "Costume",
-    "desc": "Костюми за театрални и оперни постановки — скици и реализации.",
-    "preview": [
-      "COS_035",
-      "COS_032",
-      "COS_034",
-      "COS_012",
-      "COS_014",
-      "COS_011"
-    ],
-    "works": [
-      {
-        "id": "COS_019",
-        "title": "COS_019",
-        "year": "",
-        "medium": "",
-        "size": "",
-        "ratio": "2/3",
-        "thumb": "img/thumb/COS_019.webp",
-        "display": "img/display/COS_019.webp"
-      },
-      {
-        "id": "COS_020",
-        "title": "COS_020",
-        "year": "",
-        "medium": "",
-        "size": "",
-        "ratio": "2/3",
-        "thumb": "img/thumb/COS_020.webp",
-        "display": "img/display/COS_020.webp"
-      },
-      {
-        "id": "COS_021",
-        "title": "COS_021",
-        "year": "",
-        "medium": "",
-        "size": "",
-        "ratio": "2/3",
-        "thumb": "img/thumb/COS_021.webp",
-        "display": "img/display/COS_021.webp"
-      },
-      {
-        "id": "COS_022",
-        "title": "COS_022",
-        "year": "",
-        "medium": "",
-        "size": "",
-        "ratio": "2/3",
-        "thumb": "img/thumb/COS_022.webp",
-        "display": "img/display/COS_022.webp"
-      },
-      {
-        "id": "COS_023",
-        "title": "COS_023",
-        "year": "",
-        "medium": "",
-        "size": "",
-        "ratio": "2/3",
-        "thumb": "img/thumb/COS_023.webp",
-        "display": "img/display/COS_023.webp"
-      },
-      {
-        "id": "COS_002",
-        "title": "COS_002",
-        "year": "",
-        "medium": "",
-        "size": "",
-        "ratio": "3/2",
-        "thumb": "img/thumb/COS_002.webp",
-        "display": "img/display/COS_002.webp"
-      },
-      {
-        "id": "COS_005",
-        "title": "COS_005",
-        "year": "",
-        "medium": "",
-        "size": "",
-        "ratio": "3/2",
-        "thumb": "img/thumb/COS_005.webp",
-        "display": "img/display/COS_005.webp"
-      },
-      {
-        "id": "COS_004",
-        "title": "COS_004",
-        "year": "",
-        "medium": "",
-        "size": "",
-        "ratio": "3/2",
-        "thumb": "img/thumb/COS_004.webp",
-        "display": "img/display/COS_004.webp"
-      },
-      {
-        "id": "COS_009",
-        "title": "COS_009",
-        "year": "",
-        "medium": "",
-        "size": "",
-        "ratio": "3/2",
-        "thumb": "img/thumb/COS_009.webp",
-        "display": "img/display/COS_009.webp"
-      },
-      {
-        "id": "COS_007",
-        "title": "COS_007",
-        "year": "",
-        "medium": "",
-        "size": "",
-        "ratio": "3/2",
-        "thumb": "img/thumb/COS_007.webp",
-        "display": "img/display/COS_007.webp"
-      },
-      {
-        "id": "COS_001",
-        "title": "COS_001",
-        "year": "",
-        "medium": "",
-        "size": "",
-        "ratio": "3/2",
-        "thumb": "img/thumb/COS_001.webp",
-        "display": "img/display/COS_001.webp"
-      },
-      {
-        "id": "COS_006",
-        "title": "COS_006",
-        "year": "",
-        "medium": "",
-        "size": "",
-        "ratio": "3/2",
-        "thumb": "img/thumb/COS_006.webp",
-        "display": "img/display/COS_006.webp"
-      },
-      {
-        "id": "COS_003",
-        "title": "COS_003",
-        "year": "",
-        "medium": "",
-        "size": "",
-        "ratio": "3/2",
-        "thumb": "img/thumb/COS_003.webp",
-        "display": "img/display/COS_003.webp"
-      },
-      {
-        "id": "COS_010",
-        "title": "COS_010",
-        "year": "",
-        "medium": "",
-        "size": "",
-        "ratio": "3/2",
-        "thumb": "img/thumb/COS_010.webp",
-        "display": "img/display/COS_010.webp"
-      },
-      {
-        "id": "COS_008",
-        "title": "COS_008",
-        "year": "",
-        "medium": "",
-        "size": "",
-        "ratio": "3/2",
-        "thumb": "img/thumb/COS_008.webp",
-        "display": "img/display/COS_008.webp"
-      },
-      {
-        "id": "COS_013",
-        "title": "COS_013",
-        "year": "",
-        "medium": "",
-        "size": "",
-        "ratio": "4/3",
-        "thumb": "img/thumb/COS_013.webp",
-        "display": "img/display/COS_013.webp"
-      },
-      {
-        "id": "COS_018",
-        "title": "COS_018",
-        "year": "",
-        "medium": "",
-        "size": "",
-        "ratio": "4/3",
-        "thumb": "img/thumb/COS_018.webp",
-        "display": "img/display/COS_018.webp"
-      },
-      {
-        "id": "COS_016",
-        "title": "COS_016",
-        "year": "",
-        "medium": "",
-        "size": "",
-        "ratio": "4/3",
-        "thumb": "img/thumb/COS_016.webp",
-        "display": "img/display/COS_016.webp"
-      },
-      {
-        "id": "COS_015",
-        "title": "COS_015",
-        "year": "",
-        "medium": "",
-        "size": "",
-        "ratio": "4/3",
-        "thumb": "img/thumb/COS_015.webp",
-        "display": "img/display/COS_015.webp"
-      },
-      {
-        "id": "COS_011",
-        "title": "COS_011",
-        "year": "",
-        "medium": "",
-        "size": "",
-        "ratio": "4/3",
-        "thumb": "img/thumb/COS_011.webp",
-        "display": "img/display/COS_011.webp"
-      },
-      {
-        "id": "COS_012",
-        "title": "COS_012",
-        "year": "",
-        "medium": "",
-        "size": "",
-        "ratio": "4/3",
-        "thumb": "img/thumb/COS_012.webp",
-        "display": "img/display/COS_012.webp"
-      },
-      {
-        "id": "COS_014",
-        "title": "COS_014",
-        "year": "",
-        "medium": "",
-        "size": "",
-        "ratio": "4/3",
-        "thumb": "img/thumb/COS_014.webp",
-        "display": "img/display/COS_014.webp"
-      },
-      {
-        "id": "COS_017",
-        "title": "COS_017",
-        "year": "",
-        "medium": "",
-        "size": "",
-        "ratio": "3/2",
-        "thumb": "img/thumb/COS_017.webp",
-        "display": "img/display/COS_017.webp"
-      },
-      {
-        "id": "COS_024",
-        "title": "COS_024",
-        "year": "",
-        "medium": "",
-        "size": "",
-        "ratio": "3/4",
-        "thumb": "img/thumb/COS_024.webp",
-        "display": "img/display/COS_024.webp"
-      },
-      {
-        "id": "COS_030",
-        "title": "COS_030",
-        "year": "",
-        "medium": "",
-        "size": "",
-        "ratio": "3/4",
-        "thumb": "img/thumb/COS_030.webp",
-        "display": "img/display/COS_030.webp"
-      },
-      {
-        "id": "COS_026",
-        "title": "COS_026",
-        "year": "",
-        "medium": "",
-        "size": "",
-        "ratio": "3/4",
-        "thumb": "img/thumb/COS_026.webp",
-        "display": "img/display/COS_026.webp"
-      },
-      {
-        "id": "COS_029",
-        "title": "COS_029",
-        "year": "",
-        "medium": "",
-        "size": "",
-        "ratio": "3/4",
-        "thumb": "img/thumb/COS_029.webp",
-        "display": "img/display/COS_029.webp"
-      },
-      {
-        "id": "COS_031",
-        "title": "COS_031",
-        "year": "",
-        "medium": "",
-        "size": "",
-        "ratio": "3/4",
-        "thumb": "img/thumb/COS_031.webp",
-        "display": "img/display/COS_031.webp"
-      },
-      {
-        "id": "COS_027",
-        "title": "COS_027",
-        "year": "",
-        "medium": "",
-        "size": "",
-        "ratio": "3/4",
-        "thumb": "img/thumb/COS_027.webp",
-        "display": "img/display/COS_027.webp"
-      },
-      {
-        "id": "COS_028",
-        "title": "COS_028",
-        "year": "",
-        "medium": "",
-        "size": "",
-        "ratio": "3/4",
-        "thumb": "img/thumb/COS_028.webp",
-        "display": "img/display/COS_028.webp"
-      },
-      {
-        "id": "COS_025",
-        "title": "COS_025",
-        "year": "",
-        "medium": "",
-        "size": "",
-        "ratio": "3/4",
-        "thumb": "img/thumb/COS_025.webp",
-        "display": "img/display/COS_025.webp"
-      },
-      {
-        "id": "COS_033",
-        "title": "COS_033",
-        "year": "",
-        "medium": "",
-        "size": "",
-        "ratio": "3/4",
-        "thumb": "img/thumb/COS_033.webp",
-        "display": "img/display/COS_033.webp"
-      },
-      {
-        "id": "COS_032",
-        "title": "COS_032",
-        "year": "",
-        "medium": "",
-        "size": "",
-        "ratio": "3/4",
-        "objectPosition": "top",
-        "thumb": "img/thumb/COS_032.webp",
-        "display": "img/display/COS_032.webp"
-      },
-      {
-        "id": "COS_036",
-        "title": "COS_036",
-        "year": "",
-        "medium": "",
-        "size": "",
-        "ratio": "3/4",
-        "thumb": "img/thumb/COS_036.webp",
-        "display": "img/display/COS_036.webp"
-      },
-      {
-        "id": "COS_034",
-        "title": "COS_034",
-        "year": "",
-        "medium": "",
-        "size": "",
-        "ratio": "3/4",
-        "objectPosition": "top",
-        "thumb": "img/thumb/COS_034.webp",
-        "display": "img/display/COS_034.webp"
-      },
-      {
-        "id": "COS_035",
-        "title": "COS_035",
-        "year": "",
-        "medium": "",
-        "size": "",
-        "ratio": "3/4",
-        "objectPosition": "top",
-        "thumb": "img/thumb/COS_035.webp",
-        "display": "img/display/COS_035.webp"
-      }
-    ]
-  },
-  {
     "id": "risuvane",
     "name": "Рисуване",
     "nameRoman": "Drawing",
@@ -1707,162 +1871,6 @@ window.SECTIONS = [
         "ratio": "3/2",
         "thumb": "img/thumb/DRW_012.webp",
         "display": "img/display/DRW_012.webp"
-      }
-    ]
-  },
-  {
-    "id": "scenografiya",
-    "name": "Сценография",
-    "nameRoman": "Scenography",
-    "desc": "Проекти за сценична среда — макети, чертежи и реализации.",
-    "preview": [
-      "SCN_007",
-      "SCN_008",
-      "SCN_010",
-      "SCN_014",
-      "SCN_005",
-      "SCN_004"
-    ],
-    "works": [
-      {
-        "id": "SCN_001",
-        "title": "SCN_001",
-        "year": "",
-        "medium": "",
-        "size": "",
-        "ratio": "16/9",
-        "thumb": "img/thumb/SCN_001.webp",
-        "display": "img/display/SCN_001.webp"
-      },
-      {
-        "id": "SCN_002",
-        "title": "SCN_002",
-        "year": "",
-        "medium": "",
-        "size": "",
-        "ratio": "16/9",
-        "thumb": "img/thumb/SCN_002.webp",
-        "display": "img/display/SCN_002.webp"
-      },
-      {
-        "id": "SCN_012",
-        "title": "SCN_012",
-        "year": "",
-        "medium": "",
-        "size": "",
-        "ratio": "3/2",
-        "thumb": "img/thumb/SCN_012.webp",
-        "display": "img/display/SCN_012.webp"
-      },
-      {
-        "id": "SCN_013",
-        "title": "SCN_013",
-        "year": "",
-        "medium": "",
-        "size": "",
-        "ratio": "3/2",
-        "thumb": "img/thumb/SCN_013.webp",
-        "display": "img/display/SCN_013.webp"
-      },
-      {
-        "id": "SCN_014",
-        "title": "SCN_014",
-        "year": "",
-        "medium": "",
-        "size": "",
-        "ratio": "3/2",
-        "thumb": "img/thumb/SCN_014.webp",
-        "display": "img/display/SCN_014.webp"
-      },
-      {
-        "id": "SCN_005",
-        "title": "SCN_005",
-        "year": "",
-        "medium": "",
-        "size": "",
-        "ratio": "16/9",
-        "thumb": "img/thumb/SCN_005.webp",
-        "display": "img/display/SCN_005.webp"
-      },
-      {
-        "id": "SCN_003",
-        "title": "SCN_003",
-        "year": "",
-        "medium": "",
-        "size": "",
-        "ratio": "3/2",
-        "thumb": "img/thumb/SCN_003.webp",
-        "display": "img/display/SCN_003.webp"
-      },
-      {
-        "id": "SCN_004",
-        "title": "SCN_004",
-        "year": "",
-        "medium": "",
-        "size": "",
-        "ratio": "3/2",
-        "thumb": "img/thumb/SCN_004.webp",
-        "display": "img/display/SCN_004.webp"
-      },
-      {
-        "id": "SCN_006",
-        "title": "SCN_006",
-        "year": "",
-        "medium": "",
-        "size": "",
-        "ratio": "3/2",
-        "thumb": "img/thumb/SCN_006.webp",
-        "display": "img/display/SCN_006.webp"
-      },
-      {
-        "id": "SCN_007",
-        "title": "SCN_007",
-        "year": "",
-        "medium": "",
-        "size": "",
-        "ratio": "3/2",
-        "thumb": "img/thumb/SCN_007.webp",
-        "display": "img/display/SCN_007.webp"
-      },
-      {
-        "id": "SCN_008",
-        "title": "SCN_008",
-        "year": "",
-        "medium": "",
-        "size": "",
-        "ratio": "3/2",
-        "thumb": "img/thumb/SCN_008.webp",
-        "display": "img/display/SCN_008.webp"
-      },
-      {
-        "id": "SCN_009",
-        "title": "SCN_009",
-        "year": "",
-        "medium": "",
-        "size": "",
-        "ratio": "4/3",
-        "thumb": "img/thumb/SCN_009.webp",
-        "display": "img/display/SCN_009.webp"
-      },
-      {
-        "id": "SCN_010",
-        "title": "SCN_010",
-        "year": "",
-        "medium": "",
-        "size": "",
-        "ratio": "3/2",
-        "thumb": "img/thumb/SCN_010.webp",
-        "display": "img/display/SCN_010.webp"
-      },
-      {
-        "id": "SCN_011",
-        "title": "SCN_011",
-        "year": "",
-        "medium": "",
-        "size": "",
-        "ratio": "3/2",
-        "thumb": "img/thumb/SCN_011.webp",
-        "display": "img/display/SCN_011.webp"
       }
     ]
   }
