@@ -478,7 +478,7 @@ window.SECTIONS = [
         "display": "img/display/ZHV_045.webp"
       }
     ]
-  },,
+  },
   {
     "id": "scenografiya",
     "name": "Сценография",
@@ -1013,7 +1013,7 @@ window.SECTIONS = [
         "display": "img/display/COS_035.webp"
       }
     ]
-  },,
+  },
   {
     "id": "3d",
     "name": "3D",
@@ -1589,7 +1589,7 @@ window.SECTIONS = [
         "display": "img/display/Samsara__Samsara-01.webp"
       }
     ]
-  },,
+  },
   {
     "id": "risuvane",
     "name": "Рисуване",
@@ -1865,5 +1865,5 @@ window.SECTIONS = [
         "display": "img/display/DRW_012.webp"
       }
     ]
-  },
+  }
 ];
